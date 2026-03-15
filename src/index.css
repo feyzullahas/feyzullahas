@@ -28,43 +28,11 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  background:
-    radial-gradient(circle at top left, rgba(56, 189, 248, 0.18), transparent 55%),
-    radial-gradient(circle at bottom right, rgba(192, 132, 252, 0.16), transparent 55%),
-    radial-gradient(circle at center, rgba(15, 23, 42, 0.9), #020617);
+  background: #020617;
   color: var(--text-primary);
   line-height: 1.6;
   position: relative;
   overflow-x: hidden;
-}
-
-body::before,
-body::after {
-  content: '';
-  position: fixed;
-  inset: -20%;
-  pointer-events: none;
-  z-index: -1;
-}
-
-/* Hafif grid / noise efekti */
-body::before {
-  background-image:
-    linear-gradient(rgba(148, 163, 184, 0.08) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(148, 163, 184, 0.06) 1px, transparent 1px);
-  background-size: 120px 120px;
-  opacity: 0.25;
-}
-
-/* Yavaş hareket eden renkli bloblar */
-body::after {
-  background:
-    radial-gradient(circle at 10% 20%, rgba(56, 189, 248, 0.22), transparent 55%),
-    radial-gradient(circle at 80% 80%, rgba(129, 140, 248, 0.22), transparent 55%),
-    radial-gradient(circle at 50% 0%, rgba(236, 72, 153, 0.12), transparent 55%);
-  filter: blur(40px);
-  opacity: 0.6;
-  animation: bgFloat 30s ease-in-out infinite alternate;
 }
 
 h1, h2, h3, h4, h5, h6 {

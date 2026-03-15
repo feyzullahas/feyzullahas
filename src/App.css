@@ -2,12 +2,21 @@
   min-height: 100vh;
   display: flex;
   flex-direction: column;
-  background: #0f0f14;
+  background: transparent;
+  position: relative;
+  z-index: 1;
+}
+
+#root {
+  position: relative;
+  z-index: 1;
 }
 
 .main-content {
   flex: 1;
   padding-top: 72px; /* header yüksekliği kadar */
+  position: relative;
+  z-index: 2;
 }
 
 /* Smooth scroll */

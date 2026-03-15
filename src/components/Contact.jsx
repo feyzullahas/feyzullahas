@@ -4,20 +4,20 @@ const Contact = () => {
   const socialLinks = [
     {
       name: 'LinkedIn',
-      url: '#', // LinkedIn profilinizin linkini buraya ekleyin
+      url: 'https://www.linkedin.com/in/feyzullah-as-'
     },
     {
       name: 'GitHub',
-      url: '#', // GitHub profilinizin linkini buraya ekleyin
+      url: 'https://github.com/feyzullahas'
     },
     {
       name: 'Instagram',
-      url: '#', // Instagram profilinizin linkini buraya ekleyin
+      url: 'https://www.instagram.com/feyzullah.77/'
     },
     {
       name: 'E-Mail',
-      url: 'mailto:your.email@example.com', // E-posta adresinizi buraya ekleyin
-    },
+      url: 'mailto:feyzullahas47@gmail.com'
+     },
   ];
 
   const getIcon = (name) => {

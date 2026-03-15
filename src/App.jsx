@@ -2,6 +2,7 @@ import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import Header from './components/Header';
 import Footer from './components/Footer';
 import ScrollToTop from './components/ScrollToTop';
+import BackgroundAnimation from './components/BackgroundAnimation';
 import Home from './pages/Home';
 import AboutPage from './pages/AboutPage';
 import ExperiencePage from './pages/ExperiencePage';
@@ -15,6 +16,7 @@ function App() {
   return (
     <Router>
       <div className="app">
+        <BackgroundAnimation />
         <Header />
         <main className="main-content">
           <ScrollToTop />
