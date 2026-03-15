@@ -1,0 +1,16 @@
+.app {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  background: #0f0f14;
+}
+
+.main-content {
+  flex: 1;
+  padding-top: 72px; /* header yüksekliği kadar */
+}
+
+/* Smooth scroll */
+html {
+  scroll-behavior: smooth;
+}
