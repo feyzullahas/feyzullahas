@@ -4,7 +4,7 @@
   align-items: flex-start; /* navbar ile içerik arasındaki boşluğu azalt */
   justify-content: center;
   padding: 5rem 0 3rem; /* üst boşluğu biraz daha kısalt */
-  background: linear-gradient(135deg, #0f0f14 0%, #1a1a24 100%);
+  background: transparent;
 }
 
 .hero .container {
@@ -55,7 +55,7 @@
 .hero-subtitle {
   font-size: 1.5rem;
   color: rgba(255, 255, 255, 0.8);
-  margin: 0 0 1rem;
+  margin: 0 0 0.5rem;
 }
 
 .hero-motto {
@@ -69,25 +69,36 @@
   display: flex;
   gap: 1rem;
   flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  margin-top: 2.5rem;
 }
 
 .btn {
-  padding: 0.875rem 2rem;
-  border-radius: 8px;
+  padding: 0.75rem 2.25rem;
+  border-radius: 999px;
   text-decoration: none;
   font-weight: 600;
   transition: all 0.3s;
-  display: inline-block;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border: none;
+  cursor: pointer;
+  font-size: 0.95rem;
 }
 
 .btn-primary {
-  background: linear-gradient(135deg, #6366f1 0%, #8b5cf6 100%);
+  background: linear-gradient(135deg, #22c1c3 0%, #4b6bff 50%, #8b5cf6 100%);
   color: #fff;
+  box-shadow: 0 8px 22px rgba(59, 130, 246, 0.3);
+  padding: 0.9rem 2.6rem;
+  font-size: 1rem;
 }
 
 .btn-primary:hover {
   transform: translateY(-2px);
-  box-shadow: 0 10px 25px rgba(99, 102, 241, 0.3);
+  box-shadow: 0 14px 30px rgba(59, 130, 246, 0.4);
 }
 
 .btn-secondary {

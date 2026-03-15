@@ -2,6 +2,13 @@ import { Link } from 'react-router-dom';
 import './Hero.css';
 
 const Hero = () => {
+  const handleExploreClick = () => {
+    const aboutSection = document.getElementById('hakkimda');
+    if (aboutSection) {
+      aboutSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    }
+  };
+
   return (
     <section className="hero">
       <div className="container">
@@ -20,15 +27,12 @@ const Hero = () => {
             </h1>
             <p className="hero-subtitle">
               {/* Buraya kendi unvanınızı yazın */}
-              Yazılım Geliştirici & Mühendis
-            </p>
-            <p className="hero-motto">
-              Per aspera ad astra
+              Bilgisayar Mühendisliği 3. Sınıf Öğrencisi
             </p>
             <div className="hero-buttons">
-              <Link to="/projeler" className="btn btn-primary">
+              <button type="button" className="btn btn-primary" onClick={handleExploreClick}>
                 Keşfet
-              </Link>
+              </button>
               <Link to="/iletisim" className="btn btn-secondary">
                 İletişime Geç
               </Link>

@@ -15,7 +15,7 @@
   margin: 0 auto;
   padding: 0 2rem;
   display: flex;
-  justify-content: space-between;
+  justify-content: flex-start;
   align-items: center;
 }
 
@@ -52,6 +52,10 @@
   display: inline-block;
 }
 
+.nav {
+  margin-left: auto;
+}
+
 .nav-list {
   display: flex;
   list-style: none;
@@ -61,7 +65,7 @@
 }
 
 .nav-link {
-  color: rgba(255, 255, 255, 0.8);
+  color: #ffffff;
   text-decoration: none;
   font-size: 0.95rem;
   transition: all 0.3s;
@@ -69,39 +73,22 @@
 }
 
 .nav-link:hover {
-  color: #6366f1;
   transform: translateY(-2px);
+  background: linear-gradient(135deg, #6366f1 0%, #8b5cf6 50%, #4b6bff 100%);
+  background-size: 200% 200%;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  animation: navGradientMove 3s ease infinite;
 }
 
 .nav-link::after {
-  content: '';
-  position: absolute;
-  bottom: -5px;
-  left: 0;
-  width: 0;
-  height: 2px;
-  background: linear-gradient(135deg, #6366f1 0%, #8b5cf6 100%);
-  transition: width 0.3s;
-}
-
-.nav-link:hover::after {
-  width: 100%;
-}
-
-.nav-link.active {
-  color: #6366f1;
-}
-
-.nav-link.active::after {
-  width: 100%;
-  background: linear-gradient(135deg, #6366f1 0%, #8b5cf6 100%);
+  content: none;
 }
 
 .menu-toggle {
   display: none;
   flex-direction: column;
-  background: none;
-  border: none;
   cursor: pointer;
   padding: 0.5rem;
   gap: 4px;
@@ -140,10 +127,23 @@
     flex-direction: column;
     padding: 1.5rem 2rem;
     gap: 1rem;
+    margin-left: 0;
   }
 
   .nav-link {
     display: block;
     padding: 0.5rem 0;
+  }
+}
+
+@keyframes navGradientMove {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
   }
 }

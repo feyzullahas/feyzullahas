@@ -1,23 +1,45 @@
 import { useState } from 'react';
-import { Link, useLocation } from 'react-router-dom';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
 import './Header.css';
 
 const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const location = useLocation();
+  const navigate = useNavigate();
 
   const navItems = [
-    { path: '/', label: 'Ana Sayfa' },
-    { path: '/hakkimda', label: 'Hakkımda' },
-    { path: '/deneyim', label: 'Deneyim' },
-    { path: '/projeler', label: 'Projeler' },
-    { path: '/beceriler', label: 'Beceriler' },
-    { path: '/cv', label: 'CV' },
-    { path: '/iletisim', label: 'İletişim' },
+    { label: 'Ana Sayfa', targetId: null },
+    { label: 'Hakkımda', targetId: 'hakkimda' },
+    { label: 'Deneyim', targetId: 'deneyim' },
+    { label: 'Projeler', targetId: 'projeler' },
+    { label: 'Beceriler', targetId: 'beceriler' },
+    { label: 'CV', targetId: 'cv' },
+    { label: 'İletişim', targetId: 'iletisim' },
   ];
 
   const toggleMenu = () => {
     setIsMenuOpen(!isMenuOpen);
+  };
+
+  const handleNavClick = (targetId, event) => {
+    event.preventDefault();
+    setIsMenuOpen(false);
+
+    // Eğer ana sayfadaysak, direkt kaydır
+    if (location.pathname === '/') {
+      if (!targetId) {
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+      } else {
+        const el = document.getElementById(targetId);
+        if (el) {
+          el.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        }
+      }
+      return;
+    }
+
+    // Ana sayfada değilsek önce ana sayfaya git, sonra kaydırma için state gönder
+    navigate('/', { state: { scrollTo: targetId } });
   };
 
   return (
@@ -30,11 +52,11 @@ const Header = () => {
         <nav className={`nav ${isMenuOpen ? 'nav-open' : ''}`}>
           <ul className="nav-list">
             {navItems.map((item) => (
-              <li key={item.path}>
+              <li key={item.label}>
                 <Link
-                  to={item.path}
-                  className={`nav-link ${location.pathname === item.path ? 'active' : ''}`}
-                  onClick={() => setIsMenuOpen(false)}
+                  to="/"
+                  className={`nav-link ${location.pathname === '/' ? 'active' : ''}`}
+                  onClick={(e) => handleNavClick(item.targetId, e)}
                 >
                   {item.label}
                 </Link>
