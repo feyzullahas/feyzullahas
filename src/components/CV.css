@@ -1,6 +1,6 @@
 .cv {
   padding: 6rem 0;
-  background: #1a1a24;
+  background: rgba(5, 8, 22, 0.8);
 }
 
 .cv .container {
@@ -10,16 +10,16 @@
 }
 
 .cv-content {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 3rem;
-  align-items: center;
+  display: flex;
+  justify-content: center;
 }
 
 .cv-download {
   display: flex;
   flex-direction: column;
   gap: 1.5rem;
+  max-width: 700px;
+  text-align: center;
 }
 
 .cv-download p {
@@ -30,48 +30,9 @@
 
 .cv-buttons {
   display: flex;
+  justify-content: center;
   gap: 1rem;
   flex-wrap: wrap;
-}
-
-.cv-preview {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
-.cv-placeholder {
-  width: 100%;
-  max-width: 500px;
-  aspect-ratio: 3/4;
-  background: rgba(255, 255, 255, 0.05);
-  border-radius: 12px;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  border: 2px dashed rgba(255, 255, 255, 0.2);
-  color: rgba(255, 255, 255, 0.5);
-  text-align: center;
-  padding: 2rem;
-  gap: 1rem;
-}
-
-.cv-placeholder img {
-  width: 100%;
-  height: 100%;
-  object-fit: contain;
-  border-radius: 8px;
-}
-
-@media (max-width: 968px) {
-  .cv-content {
-    grid-template-columns: 1fr;
-  }
-
-  .cv-preview {
-    order: -1;
-  }
 }
 
 @media (max-width: 768px) {

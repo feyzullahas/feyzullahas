@@ -4,19 +4,23 @@ const Contact = () => {
   const socialLinks = [
     {
       name: 'LinkedIn',
-      url: 'https://www.linkedin.com/in/feyzullah-as-'
+      url: 'https://www.linkedin.com/in/feyzullah-as-/',
+      account: 'linkedin.com/in/feyzullah-as-/'
     },
     {
       name: 'GitHub',
-      url: 'https://github.com/feyzullahas'
+      url: 'https://github.com/feyzullahas',
+      account: 'github.com/feyzullahas'
     },
     {
       name: 'Instagram',
-      url: 'https://www.instagram.com/feyzullah.77/'
+      url: 'https://www.instagram.com/feyzullah.77/',
+      account: 'feyzullah.77'
     },
     {
       name: 'E-Mail',
-      url: 'mailto:feyzullahas47@gmail.com'
+      url: 'mailto:feyzullahas47@gmail.com',
+      account: 'feyzullahas47@gmail.com'
      },
   ];
 
@@ -72,6 +76,7 @@ const Contact = () => {
                 {getIcon(social.name)}
               </div>
               <span className="social-name">{social.name}</span>
+              <span className="social-account">{social.account}</span>
             </a>
           ))}
         </div>

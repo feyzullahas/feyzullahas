@@ -82,6 +82,19 @@
   font-weight: 600;
 }
 
+.social-account {
+  font-size: 0.75rem;
+  line-height: 1.3;
+  color: rgba(255, 255, 255, 0.65);
+  text-align: center;
+  max-width: 180px;
+  word-break: break-word;
+}
+
+.social-link:hover .social-account {
+  color: rgba(255, 255, 255, 0.9);
+}
+
 @keyframes fadeInUp {
   from {
     opacity: 0;
