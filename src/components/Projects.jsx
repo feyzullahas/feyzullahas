@@ -1,27 +1,39 @@
 import './Projects.css';
+import { useLanguage } from '../context/LanguageContext';
 
 const Projects = () => {
+  const { text } = useLanguage();
+
   const projects = [
     {
       icon: '🔭',
-      title: 'Proje Başlığı 1',
-      description: 'Proje açıklaması buraya gelecek. Projenin amacı, kullanılan teknolojiler ve sonuçlar hakkında bilgi verin.',
+      title: text.projects.items[0].title,
+      description: text.projects.items[0].description,
       tags: ['React', 'Node.js', 'MongoDB'],
       image: null, // Resim eklemek için: '/images/project1.jpg'
       link: '#',
     },
     {
       icon: '⚛️',
-      title: 'Proje Başlığı 2',
-      description: 'Proje açıklaması buraya gelecek.',
+      title: text.projects.items[1].title,
+      description: text.projects.items[1].description,
       tags: ['Python', 'AI', 'Machine Learning'],
       image: null,
       link: '#',
     },
     {
+      icon: '⚛️',
+      title: text.projects.items[2].title,
+      description: text.projects.items[2].description,
+      tags: ['Python', 'AI', 'Machine Learning'],
+      image: null,
+      link: '#',
+    },
+    
+    {
       icon: '🚀',
-      title: 'Proje Başlığı 3',
-      description: 'Proje açıklaması buraya gelecek.',
+      title: text.projects.items[3].title,
+      description: text.projects.items[3].description,
       tags: ['JavaScript', 'API', 'Frontend'],
       image: null,
       link: '#',
@@ -32,7 +44,7 @@ const Projects = () => {
   return (
     <section className="projects" id="projeler">
       <div className="container">
-        <h2 className="section-title">Projeler & Yarışmalar</h2>
+        <h2 className="section-title">{text.projects.title}</h2>
 
         <div className="projects-grid">
           {projects.map((project, index) => (
@@ -55,7 +67,7 @@ const Projects = () => {
                 </div>
                 {project.link && (
                   <a href={project.link} className="project-link" target="_blank" rel="noopener noreferrer">
-                    Detayları Gör →
+                    {text.projects.details}
                   </a>
                 )}
               </div>

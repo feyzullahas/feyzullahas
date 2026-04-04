@@ -1,20 +1,22 @@
 import { useEffect, useState } from 'react';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
+import { useLanguage } from '../context/LanguageContext';
 import './Header.css';
 
 const navItems = [
-  { label: 'Ana Sayfa', targetId: null },
-  { label: 'Hakkımda', targetId: 'hakkimda' },
-  { label: 'Deneyim', targetId: 'deneyim' },
-  { label: 'Projeler', targetId: 'projeler' },
-  { label: 'Beceriler', targetId: 'beceriler' },
-  { label: 'CV', targetId: 'cv' },
-  { label: 'İletişim', targetId: 'iletisim' },
+  { key: 'home', targetId: null },
+  { key: 'about', targetId: 'hakkimda' },
+  { key: 'experience', targetId: 'deneyim' },
+  { key: 'projects', targetId: 'projeler' },
+  { key: 'skills', targetId: 'beceriler' },
+  { key: 'cv', targetId: 'cv' },
+  { key: 'contact', targetId: 'iletisim' },
 ];
 
 const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [activeTargetId, setActiveTargetId] = useState(null);
+  const { text, toggleLanguage } = useLanguage();
   const location = useLocation();
   const navigate = useNavigate();
 
@@ -107,7 +109,7 @@ const Header = () => {
         <nav className={`nav ${isMenuOpen ? 'nav-open' : ''}`}>
           <ul className="nav-list">
             {navItems.map((item) => (
-              <li key={item.label}>
+              <li key={item.key}>
                 <Link
                   to="/"
                   className={`nav-link ${
@@ -117,12 +119,21 @@ const Header = () => {
                   }`}
                   onClick={(e) => handleNavClick(item.targetId, e)}
                 >
-                  {item.label}
+                  {text.nav[item.key]}
                 </Link>
               </li>
             ))}
           </ul>
         </nav>
+
+        <button
+          type="button"
+          className="language-toggle"
+          onClick={toggleLanguage}
+          aria-label={text.nav.languageAriaLabel}
+        >
+          {text.nav.languageToggle}
+        </button>
 
         <button className="menu-toggle" onClick={toggleMenu} aria-label="Toggle menu">
           <span></span>

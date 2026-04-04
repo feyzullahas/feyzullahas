@@ -1,7 +1,10 @@
 import { Link } from 'react-router-dom';
+import { useLanguage } from '../context/LanguageContext';
 import './Hero.css';
 
 const Hero = () => {
+  const { text } = useLanguage();
+
   const handleExploreClick = () => {
     const aboutSection = document.getElementById('hakkimda');
     if (aboutSection) {
@@ -17,7 +20,7 @@ const Hero = () => {
             {/* Buraya kendi resminizi ekleyin */}
             <div className="hero-image">
               <div className="placeholder-image">
-                <span>Resminizi buraya ekleyin</span>
+                <span>{text.hero.imagePlaceholder}</span>
               </div>
             </div>
           </div>
@@ -26,15 +29,15 @@ const Hero = () => {
               <span className="hero-name">Feyzullah As</span>
             </h1>
             <p className="hero-subtitle">
-              {/* Buraya kendi unvanınızı yazın */}
-              Bilgisayar Mühendisliği
+              {}
+              {text.hero.subtitle}
             </p>
             <div className="hero-buttons">
               <button type="button" className="btn btn-primary" onClick={handleExploreClick}>
-                Keşfet
+                {text.hero.explore}
               </button>
               <Link to="/iletisim" className="btn btn-secondary">
-                İletişime Geç
+                {text.hero.contact}
               </Link>
             </div>
           </div>

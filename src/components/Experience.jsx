@@ -1,20 +1,30 @@
 import './Experience.css';
+import { useLanguage } from '../context/LanguageContext';
 
 const Experience = () => {
+  const { text } = useLanguage();
+
   const experiences = [
     {
-      title: 'Pozisyon Başlığı',
-      company: 'Şirket/Kurum Adı',
-      period: 'Tarih Aralığı',
-      description: 'Buraya deneyim açıklamanızı yazın. Görevlerinizi, başarılarınızı ve sorumluluklarınızı detaylandırın.',
+      title: text.experience.items[0].title,
+      company: text.experience.items[0].company,
+      period: text.experience.items[0].period,
+      description: text.experience.items[0].description,
       image: null, // Resim eklemek için: '/images/experience1.jpg'
     },
     {
-      title: 'Pozisyon Başlığı 2',
-      company: 'Şirket/Kurum Adı 2',
-      period: 'Tarih Aralığı 2',
-      description: 'Buraya deneyim açıklamanızı yazın.',
+      title: text.experience.items[1].title,
+      company: text.experience.items[1].company,
+      period: text.experience.items[1].period,
+      description: text.experience.items[1].description,
       image: null,
+    },
+    {
+      title: text.experience.items[2].title,
+      company: text.experience.items[2].company,
+      period: text.experience.items[2].period,
+      description: text.experience.items[2].description,
+      image: null, // Resim eklemek için: '/images/experience1.jpg'
     },
     // Daha fazla deneyim ekleyebilirsiniz
   ];
@@ -22,7 +32,7 @@ const Experience = () => {
   return (
     <section className="experience" id="deneyim">
       <div className="container">
-        <h2 className="section-title">Deneyim & Liderlik</h2>
+        <h2 className="section-title">{text.experience.title}</h2>
 
         <div className="experience-list">
           {experiences.map((exp, index) => (
