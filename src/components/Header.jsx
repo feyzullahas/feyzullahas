@@ -16,7 +16,7 @@ const navItems = [
 const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [activeTargetId, setActiveTargetId] = useState(null);
-  const { text, toggleLanguage } = useLanguage();
+  const { text, toggleLanguage, language } = useLanguage();
   const location = useLocation();
   const navigate = useNavigate();
 
@@ -128,11 +128,13 @@ const Header = () => {
 
         <button
           type="button"
-          className="language-toggle"
+          className={`language-toggle ${language === 'en' ? 'language-toggle-en' : ''}`}
           onClick={toggleLanguage}
           aria-label={text.nav.languageAriaLabel}
         >
-          {text.nav.languageToggle}
+          <span className="language-thumb" aria-hidden="true">
+            {language === 'tr' ? 'TR' : 'EN'}
+          </span>
         </button>
 
         <button className="menu-toggle" onClick={toggleMenu} aria-label="Toggle menu">

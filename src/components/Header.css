@@ -58,25 +58,57 @@
 }
 
 .language-toggle {
+  --thumb-gap: 3px;
+  --thumb-size: 28px;
   position: absolute;
   right: 4.5rem;
   top: 50%;
   transform: translateY(-50%);
-  border: 1px solid rgba(255, 255, 255, 0.35);
-  background: rgba(255, 255, 255, 0.08);
-  color: #fff;
+  width: 78px;
+  height: 34px;
+  padding: 0 8px;
+  border: 1px solid rgba(196, 181, 253, 0.48);
+  background: linear-gradient(135deg, rgba(76, 29, 149, 0.45) 0%, rgba(91, 33, 182, 0.45) 100%);
   border-radius: 999px;
-  padding: 0.4rem 0.9rem;
-  font-size: 0.8rem;
-  font-weight: 700;
-  letter-spacing: 0.05em;
+  display: inline-flex;
+  align-items: center;
+  justify-content: space-between;
+  overflow: hidden;
+  backdrop-filter: blur(6px);
   cursor: pointer;
-  transition: all 0.25s ease;
+  transition: border-color 0.25s ease, box-shadow 0.25s ease, background 0.25s ease, transform 0.2s ease;
 }
 
 .language-toggle:hover {
-  border-color: rgba(255, 255, 255, 0.7);
-  background: rgba(255, 255, 255, 0.16);
+  border-color: rgba(216, 180, 254, 0.78);
+  box-shadow: 0 10px 24px rgba(139, 92, 246, 0.32);
+}
+
+.language-toggle:active {
+  transform: translateY(-50%) scale(0.97);
+}
+
+.language-thumb {
+  position: absolute;
+  left: var(--thumb-gap);
+  top: calc((100% - var(--thumb-size)) / 2);
+  width: var(--thumb-size);
+  height: var(--thumb-size);
+  border-radius: 50%;
+  background: radial-gradient(circle at 30% 25%, #f5d0fe 0%, #c084fc 38%, #8b5cf6 100%);
+  box-shadow: 0 6px 16px rgba(124, 58, 237, 0.45);
+  color: #2e1065;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.66rem;
+  font-weight: 800;
+  letter-spacing: 0.05em;
+  transition: left 0.3s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.language-toggle-en .language-thumb {
+  left: calc(100% - var(--thumb-size) - var(--thumb-gap));
 }
 
 .nav-list {
@@ -146,8 +178,15 @@
 
   .language-toggle {
     right: 5.5rem;
-    padding: 0.35rem 0.75rem;
-    font-size: 0.75rem;
+    --thumb-gap: 3px;
+    --thumb-size: 24px;
+    width: 70px;
+    height: 30px;
+    padding: 0 8px;
+  }
+
+  .language-thumb {
+    font-size: 0.58rem;
   }
 
   .nav {
