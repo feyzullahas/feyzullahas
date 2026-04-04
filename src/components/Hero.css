@@ -67,8 +67,8 @@
 
 .hero-buttons {
   display: flex;
+  flex-direction: column;
   gap: 1rem;
-  flex-wrap: wrap;
   justify-content: center;
   align-items: center;
   margin-top: 2.5rem;

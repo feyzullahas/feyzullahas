@@ -27,7 +27,7 @@ const Hero = () => {
             </h1>
             <p className="hero-subtitle">
               {/* Buraya kendi unvanınızı yazın */}
-              Bilgisayar Mühendisliği 3. Sınıf Öğrencisi
+              Bilgisayar Mühendisliği
             </p>
             <div className="hero-buttons">
               <button type="button" className="btn btn-primary" onClick={handleExploreClick}>

@@ -104,10 +104,6 @@ const Header = () => {
   return (
     <header className="header">
       <div className="container">
-        <Link to="/" className="logo">
-          <span className="logo-text">Feyzullah As</span>
-        </Link>
-        
         <nav className={`nav ${isMenuOpen ? 'nav-open' : ''}`}>
           <ul className="nav-list">
             {navItems.map((item) => (
