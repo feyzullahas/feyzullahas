@@ -9,16 +9,16 @@ const BackgroundAnimation = () => {
     const ctx = canvas.getContext('2d');
     let animationFrameId;
 
-    let mouse = { x: -1000, y: -1000 };
+    let mouse = { x: -1000, y: -1000, active: false };
 
     const handleMouseMove = (e) => {
       mouse.x = e.clientX;
       mouse.y = e.clientY;
+      mouse.active = true;
     };
 
     const handleMouseOut = () => {
-      mouse.x = -1000;
-      mouse.y = -1000;
+      mouse.active = false;
     };
 
     window.addEventListener('mousemove', handleMouseMove);
@@ -27,119 +27,165 @@ const BackgroundAnimation = () => {
     const setCanvasDimensions = () => {
       canvas.width = window.innerWidth;
       canvas.height = window.innerHeight;
-      init(); // Re-calculate grid on resize
+      init();
     };
-    
+
     window.addEventListener('resize', setCanvasDimensions);
 
-    // Altıgen (Hexagon) matematiği
-    const hexRadius = 45; // Altıgenin boyutu
-    const hexHeight = hexRadius * Math.sqrt(3);
-    const hexWidth = hexRadius * 2;
-    // Izgara kaydırma (offset) miktarları
-    const xOffset = hexRadius * 1.5;
-    const yOffset = hexHeight;
+    const particleCount = 80;
+    const connectionDistance = 150;
+    const mouseRadius = 200;
+    let particles = [];
 
-    let hexagons = [];
+    const colors = [
+      { r: 99, g: 102, b: 241 },   // Indigo
+      { r: 139, g: 92, b: 246 },   // Violet
+      { r: 56, g: 189, b: 248 },   // Sky Blue
+      { r: 236, g: 72, b: 153 },   // Pink
+    ];
 
-    class Hexagon {
-      constructor(x, y) {
-        this.baseX = x;
-        this.baseY = y;
-        this.x = x;
-        this.y = y;
-        this.targetScale = 1;
-        this.scale = 1;
-        
-        // Renkler: Normalde çok silik, etkileşime girildiğinde belirginleşecek
-        // Indigo ve Violet'in çok açık tonları
-        this.baseColor = Math.random() > 0.5 ? 'rgba(99, 102, 241, 0.15)' : 'rgba(139, 92, 246, 0.15)';
-        // Hover durumunda parlak Sky Blue
-        this.activeColor = 'rgba(56, 189, 248, 0.7)';
+    class Particle {
+      constructor() {
+        this.x = Math.random() * canvas.width;
+        this.y = Math.random() * canvas.height;
+        this.vx = (Math.random() - 0.5) * 0.5;
+        this.vy = (Math.random() - 0.5) * 0.5;
+        this.baseRadius = Math.random() * 2 + 1;
+        this.radius = this.baseRadius;
+        this.baseColor = colors[Math.floor(Math.random() * colors.length)];
+        this.color = this.baseColor;
+        this.angle = Math.random() * Math.PI * 2;
+        this.orbitSpeed = (Math.random() - 0.5) * 0.02;
+        this.pulsePhase = Math.random() * Math.PI * 2;
       }
 
       update(time) {
-        let dx = mouse.x - this.baseX;
-        let dy = mouse.y - this.baseY;
-        let dist = Math.sqrt(dx * dx + dy * dy);
+        // Sürekli yavaş hareket
+        this.x += this.vx;
+        this.y += this.vy;
+        this.angle += this.orbitSpeed;
 
-        if (dist < 180 && mouse.x !== -1000) {
-          // Fare etkileşimi: Farenin etrafındaki altıgenler küçülür ve fareye doğru hafifçe çekilir
-          this.targetScale = 0.3 + (dist / 180) * 0.7; // Farenin merkezine ne kadar yakınsa o kadar küçülür
-          this.x = this.baseX + (dx / dist) * 12; // Fareye doğru hafif çekim
-          this.y = this.baseY + (dy / dist) * 12;
+        // Ekran sınırlarından sekme
+        if (this.x < 0 || this.x > canvas.width) this.vx *= -1;
+        if (this.y < 0 || this.y > canvas.height) this.vy *= -1;
+
+        // Fare etkileşimi
+        const dx = mouse.x - this.x;
+        const dy = mouse.y - this.y;
+        const dist = Math.sqrt(dx * dx + dy * dy);
+
+        if (dist < mouseRadius && mouse.active) {
+          // Fareye doğru çekim kuvveti
+          const force = (mouseRadius - dist) / mouseRadius;
+          const angle = Math.atan2(dy, dx);
+          this.x += Math.cos(angle) * force * 2;
+          this.y += Math.sin(angle) * force * 2;
+
+          // Fare yakınında büyüme ve parlaklık
+          this.radius = this.baseRadius * (1 + force * 2);
+          this.color = { r: 56, g: 189, b: 248 }; // Sky Blue
         } else {
-          // Kendi başına (Otonom) Nefes Alma Dalgası:
-          // X ve Y koordinatlarına dayalı matematiksel bir dalga (Sinüs) formülü
-          let wave = Math.sin(this.baseX * 0.005 + this.baseY * 0.005 + time) * 0.15;
-          this.targetScale = 1 + wave;
-          this.x = this.baseX;
-          this.y = this.baseY;
+          // Normal nefes alma animasyonu
+          const pulse = Math.sin(time + this.pulsePhase) * 0.3 + 1;
+          this.radius = this.baseRadius * pulse;
+          this.color = this.baseColor;
         }
-
-        // Akıcı animasyon için mevcut boyutu hedef boyuta yumuşakça (Lerp) yaklaştır
-        this.scale += (this.targetScale - this.scale) * 0.15;
       }
 
       draw() {
-        ctx.save();
-        ctx.translate(this.x, this.y);
-        ctx.scale(this.scale, this.scale); // Büyüklüğü ayarla
-        
         ctx.beginPath();
-        for (let i = 0; i < 6; i++) {
-          // 6 köşeli poligon çizimi
-          let angle = (Math.PI / 3) * i;
-          let px = hexRadius * Math.cos(angle);
-          let py = hexRadius * Math.sin(angle);
-          if (i === 0) ctx.moveTo(px, py);
-          else ctx.lineTo(px, py);
+        ctx.arc(this.x, this.y, this.radius, 0, Math.PI * 2);
+
+        const isNearMouse = mouse.active && 
+          Math.sqrt((mouse.x - this.x) ** 2 + (mouse.y - this.y) ** 2) < mouseRadius;
+
+        const alpha = isNearMouse ? 1 : 0.6;
+        ctx.fillStyle = `rgba(${this.color.r}, ${this.color.g}, ${this.color.b}, ${alpha})`;
+        ctx.fill();
+
+        // Parlama efekti
+        if (isNearMouse) {
+          ctx.shadowBlur = 15;
+          ctx.shadowColor = `rgba(${this.color.r}, ${this.color.g}, ${this.color.b}, 0.8)`;
+        } else {
+          ctx.shadowBlur = 0;
         }
-        ctx.closePath();
-        
-        // İçini doldurmak yerine sadece kenarlarını (Wireframe) çiziyoruz
-        ctx.lineWidth = 1.5;
-        // Fareyle etkileşime girip küçülüyorsa rengi parlak yap, yoksa soluk kalsın
-        ctx.strokeStyle = this.scale < 0.8 ? this.activeColor : this.baseColor;
-        ctx.stroke();
-        
-        ctx.restore();
       }
     }
 
-    const init = () => {
-      hexagons = [];
-      // Ekranı kaplayacak kadar sütun ve satır sayısını hesapla
-      let cols = Math.ceil(canvas.width / xOffset) + 2;
-      let rows = Math.ceil(canvas.height / yOffset) + 2;
+    const drawConnections = () => {
+      for (let i = 0; i < particles.length; i++) {
+        for (let j = i + 1; j < particles.length; j++) {
+          const dx = particles[i].x - particles[j].x;
+          const dy = particles[i].y - particles[j].y;
+          const dist = Math.sqrt(dx * dx + dy * dy);
 
-      for (let row = -1; row < rows; row++) {
-        for (let col = -1; col < cols; col++) {
-          let x = col * xOffset;
-          let y = row * yOffset;
-          // Arı peteği (Honeycomb) dizilimi için her ikinci sütunu yarım boy aşağı kaydır
-          if (col % 2 !== 0) {
-            y += hexHeight / 2;
+          if (dist < connectionDistance) {
+            const alpha = (1 - dist / connectionDistance) * 0.3;
+            ctx.beginPath();
+            ctx.moveTo(particles[i].x, particles[i].y);
+            ctx.lineTo(particles[j].x, particles[j].y);
+            ctx.strokeStyle = `rgba(99, 102, 241, ${alpha})`;
+            ctx.lineWidth = 0.8;
+            ctx.stroke();
           }
-          hexagons.push(new Hexagon(x, y));
+        }
+
+        // Fare ile parçacık arasındaki bağlantılar
+        if (mouse.active) {
+          const dx = mouse.x - particles[i].x;
+          const dy = mouse.y - particles[i].y;
+          const dist = Math.sqrt(dx * dx + dy * dy);
+
+          if (dist < mouseRadius * 1.5) {
+            const alpha = (1 - dist / (mouseRadius * 1.5)) * 0.5;
+            ctx.beginPath();
+            ctx.moveTo(particles[i].x, particles[i].y);
+            ctx.lineTo(mouse.x, mouse.y);
+            ctx.strokeStyle = `rgba(56, 189, 248, ${alpha})`;
+            ctx.lineWidth = 1;
+            ctx.stroke();
+          }
         }
       }
     };
 
-    // İlk çalıştırmada boyutları ayarla ve ızgarayı oluştur
+    const init = () => {
+      particles = [];
+      for (let i = 0; i < particleCount; i++) {
+        particles.push(new Particle());
+      }
+    };
+
     setCanvasDimensions();
 
     let time = 0;
     const animate = () => {
       animationFrameId = requestAnimationFrame(animate);
-      time += 0.03;
+      time += 0.05;
 
       ctx.clearRect(0, 0, canvas.width, canvas.height);
 
-      for (let hex of hexagons) {
-        hex.update(time);
-        hex.draw();
-      }
+      // Arka plan gradyan
+      const gradient = ctx.createRadialGradient(
+        canvas.width / 2, canvas.height / 2, 0,
+        canvas.width / 2, canvas.height / 2, canvas.width
+      );
+      gradient.addColorStop(0, 'rgba(248, 250, 252, 1)');
+      gradient.addColorStop(1, 'rgba(241, 245, 249, 1)');
+      ctx.fillStyle = gradient;
+      ctx.fillRect(0, 0, canvas.width, canvas.height);
+
+      // Bağlantıları çiz
+      drawConnections();
+
+      // Parçacıkları güncelle ve çiz
+      particles.forEach(particle => {
+        particle.update(time);
+        particle.draw();
+      });
+
+      ctx.shadowBlur = 0;
     };
 
     animate();
@@ -153,7 +199,7 @@ const BackgroundAnimation = () => {
   }, []);
 
   return (
-    <div className="background-animation-container" style={{ background: '#f8fafc' }}>
+    <div className="background-animation-container">
       <canvas ref={canvasRef} className="background-canvas"></canvas>
       <div className="gradient-overlay"></div>
     </div>
