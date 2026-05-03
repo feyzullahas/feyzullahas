@@ -8,13 +8,13 @@
   --primary-color: #6366f1;
   --primary-dark: #4f46e5;
   --secondary-color: #8b5cf6;
-  --bg-dark: #050816;
-  --bg-darker: #02010a;
-  --bg-card: rgba(15, 23, 42, 0.9);
-  --text-primary: #ffffff;
-  --text-secondary: rgba(255, 255, 255, 0.8);
-  --text-tertiary: rgba(255, 255, 255, 0.6);
-  --border-color: rgba(148, 163, 184, 0.25);
+  --bg-dark: #f8fafc;
+  --bg-darker: #f1f5f9;
+  --bg-card: rgba(255, 255, 255, 0.7);
+  --text-primary: #0f172a;
+  --text-secondary: rgba(15, 23, 42, 0.7);
+  --text-tertiary: rgba(15, 23, 42, 0.5);
+  --border-color: rgba(15, 23, 42, 0.1);
 }
 
 html {
@@ -23,12 +23,12 @@ html {
 
 body {
   margin: 0;
-  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+  font-family: 'Poppins', -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
     'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  background: #020617;
+  background: var(--bg-darker);
   color: var(--text-primary);
   line-height: 1.6;
   position: relative;
@@ -36,7 +36,7 @@ body {
 }
 
 h1, h2, h3, h4, h5, h6 {
-  font-family: 'Poppins', 'Inter', sans-serif;
+  font-family: 'Poppins', sans-serif;
   font-weight: 600;
   letter-spacing: -0.02em;
 }
@@ -82,6 +82,7 @@ code {
 /* Sabit header için anchor offset */
 section {
   scroll-margin-top: 88px;
+  padding: 7rem 0; /* Sayfalar (bölümler) arası boşluk */
 }
 
 @media (max-width: 768px) {
@@ -96,14 +97,14 @@ section {
 }
 
 ::-webkit-scrollbar-track {
-  background: var(--bg-dark);
+  background: rgba(15, 23, 42, 0.05);
 }
 
 ::-webkit-scrollbar-thumb {
-  background: rgba(255, 255, 255, 0.2);
+  background: rgba(15, 23, 42, 0.2);
   border-radius: 5px;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: rgba(255, 255, 255, 0.3);
+  background: rgba(15, 23, 42, 0.3);
 }

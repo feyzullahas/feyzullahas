@@ -1,6 +1,5 @@
 .cv {
-  padding: 6rem 0;
-  background: rgba(5, 8, 22, 0.8);
+  background: var(--bg-dark);
 }
 
 .cv .container {
@@ -23,7 +22,7 @@
 }
 
 .cv-download p {
-  color: rgba(255, 255, 255, 0.8);
+  color: var(--text-secondary);
   font-size: 1.1rem;
   line-height: 1.8;
 }

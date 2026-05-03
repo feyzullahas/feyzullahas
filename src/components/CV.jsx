@@ -1,9 +1,10 @@
 import './CV.css';
 import { useLanguage } from '../context/LanguageContext';
+import cvFile from '../assets/feyzullah_as_cv.pdf';
 
 const CV = () => {
   const { text } = useLanguage();
-  const cvFilePath = '/FEYZULLAH_AS_CV.pdf';
+  const cvFilePath = cvFile;
 
   return (
     <section className="cv" id="cv">
@@ -17,7 +18,7 @@ const CV = () => {
               <a
                 href={cvFilePath}
                 className="btn btn-primary"
-                download="FEYZULLAH_AS_CV.pdf"
+                download="feyzullah_as_cv.pdf"
               >
                 {text.cv.download}
               </a>

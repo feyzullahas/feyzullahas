@@ -36,9 +36,14 @@ const Hero = () => {
               <button type="button" className="btn btn-primary" onClick={handleExploreClick}>
                 {text.hero.explore}
               </button>
-              <Link to="/iletisim" className="btn btn-secondary">
+              <button type="button" className="btn btn-secondary" onClick={() => {
+                const contactSection = document.getElementById('iletisim');
+                if (contactSection) {
+                  contactSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                }
+              }}>
                 {text.hero.contact}
-              </Link>
+              </button>
             </div>
           </div>
         </div>
