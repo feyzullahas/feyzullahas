@@ -28,11 +28,11 @@ export const translations = {
       highlights: {
         education: {
           title: 'Eğitim',
-          lines: ['Üniversite Adı', 'Bölüm Adı', 'Burs Durumu'],
+          lines: ['Çanakkale Onsekiz Mart Üniversitesi', 'Bilgisayar Mühendisliği'],
         },
         aerospace: {
-          title: 'Uzay & Havacılık',
-          lines: ['Takım Adı', 'Görev Alanları'],
+          title: 'Yönetim Kurulu Başkanı',
+          lines: ['Yazılım Geliştirme Kulübü', 'Kurucu Başkan'],
         },
         leadership: {
           title: 'Liderlik',

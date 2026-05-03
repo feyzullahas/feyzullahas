@@ -132,9 +132,9 @@ const Header = () => {
           onClick={toggleLanguage}
           aria-label={text.nav.languageAriaLabel}
         >
-          <span className="language-thumb" aria-hidden="true">
-            {language === 'tr' ? 'TR' : 'EN'}
-          </span>
+          <span className="language-toggle-glider"></span>
+          <span className={`lang-text ${language === 'tr' ? 'active' : ''}`}>TR</span>
+          <span className={`lang-text ${language === 'en' ? 'active' : ''}`}>EN</span>
         </button>
 
         <button className="menu-toggle" onClick={toggleMenu} aria-label="Toggle menu">
