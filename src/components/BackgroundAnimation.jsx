@@ -9,21 +9,6 @@ const BackgroundAnimation = () => {
     const ctx = canvas.getContext('2d');
     let animationFrameId;
 
-    let mouse = { x: -1000, y: -1000, active: false };
-
-    const handleMouseMove = (e) => {
-      mouse.x = e.clientX;
-      mouse.y = e.clientY;
-      mouse.active = true;
-    };
-
-    const handleMouseOut = () => {
-      mouse.active = false;
-    };
-
-    window.addEventListener('mousemove', handleMouseMove);
-    window.addEventListener('mouseout', handleMouseOut);
-
     const setCanvasDimensions = () => {
       canvas.width = window.innerWidth;
       canvas.height = window.innerHeight;
@@ -32,160 +17,191 @@ const BackgroundAnimation = () => {
 
     window.addEventListener('resize', setCanvasDimensions);
 
-    const particleCount = 80;
-    const connectionDistance = 150;
-    const mouseRadius = 200;
     let particles = [];
+    const particleCount = 110;
+    let mouseX = 0;
+    let mouseY = 0;
+    let time = 0;
 
-    const colors = [
-      { r: 99, g: 102, b: 241 },   // Indigo
-      { r: 139, g: 92, b: 246 },   // Violet
-      { r: 56, g: 189, b: 248 },   // Sky Blue
-      { r: 236, g: 72, b: 153 },   // Pink
-    ];
-
-    class Particle {
-      constructor() {
+    class CodeParticle {
+      constructor(index) {
+        this.index = index;
         this.x = Math.random() * canvas.width;
         this.y = Math.random() * canvas.height;
-        this.vx = (Math.random() - 0.5) * 0.5;
-        this.vy = (Math.random() - 0.5) * 0.5;
-        this.baseRadius = Math.random() * 2 + 1;
-        this.radius = this.baseRadius;
-        this.baseColor = colors[Math.floor(Math.random() * colors.length)];
-        this.color = this.baseColor;
-        this.angle = Math.random() * Math.PI * 2;
-        this.orbitSpeed = (Math.random() - 0.5) * 0.02;
-        this.pulsePhase = Math.random() * Math.PI * 2;
+        this.size = 1.5 + Math.random() * 1.5;
+        this.speedX = (Math.random() - 0.5) * 0.3;
+        this.speedY = (Math.random() - 0.5) * 0.3;
+        
+        // İlk 90 tanesi kod sembolü, son 20 tanesi yazılım fonksiyonu
+        if (index < 90) {
+          // Kod sembolleri
+          const symbols = ['{', '}', '(', ')', '[', ']', ';', '<', '>', '/', '=', '+', '-', '*'];
+          this.symbol = symbols[Math.floor(Math.random() * symbols.length)];
+          
+          // Renkler - syntax highlighter temalı
+          const colors = [
+            'rgba(147, 51, 234, 0.4)',  // Purple - keywords
+            'rgba(59, 130, 246, 0.4)',   // Blue - functions
+            'rgba(34, 197, 94, 0.4)',    // Green - strings
+            'rgba(251, 146, 60, 0.4)',   // Orange - operators
+            'rgba(239, 68, 68, 0.4)',    // Red - errors
+          ];
+          this.color = colors[Math.floor(Math.random() * colors.length)];
+        } else {
+          // Yazılım fonksiyonları
+          const functions = [
+            'fetch()', 'map()', 'filter()', 'reduce()', 'sort()',
+            'useState()', 'useEffect()', 'forEach()', 'push()', 'pop()',
+            'async()', 'await', 'Promise', 'class', 'extends',
+            'import', 'export', 'require()', 'module', 'const',
+            'let', 'var', 'function', 'return', 'if', 'else'
+          ];
+          this.symbol = functions[Math.floor(Math.random() * functions.length)];
+          
+          // Özel renkler - yazılım fonksiyonları için
+          const functionColors = [
+            'rgba(139, 92, 246, 0.5)',  // Violet - functions
+            'rgba(59, 130, 246, 0.5)',   // Blue - built-ins
+            'rgba(16, 185, 129, 0.5)',   // Green - async
+            'rgba(245, 158, 11, 0.5)',    // Amber - keywords
+            'rgba(236, 72, 153, 0.5)',    // Pink - special
+          ];
+          this.color = functionColors[Math.floor(Math.random() * functionColors.length)];
+        }
+        
+        this.opacity = 0.5 + Math.random() * 0.3;
+        this.fadeSpeed = 0.005 + Math.random() * 0.01;
+        this.fadeDirection = Math.random() > 0.5 ? 1 : -1;
       }
 
-      update(time) {
-        // Sürekli yavaş hareket
-        this.x += this.vx;
-        this.y += this.vy;
-        this.angle += this.orbitSpeed;
+      update() {
+        this.x += this.speedX;
+        this.y += this.speedY;
 
-        // Ekran sınırlarından sekme
-        if (this.x < 0 || this.x > canvas.width) this.vx *= -1;
-        if (this.y < 0 || this.y > canvas.height) this.vy *= -1;
+        // Opaklık animasyonu
+        this.opacity += this.fadeDirection * this.fadeSpeed;
+        if (this.opacity >= 0.8) {
+          this.opacity = 0.8;
+          this.fadeDirection = -1;
+        } else if (this.opacity <= 0.5) {
+          this.opacity = 0.5;
+          this.fadeDirection = 1;
+        }
 
-        // Fare etkileşimi
-        const dx = mouse.x - this.x;
-        const dy = mouse.y - this.y;
-        const dist = Math.sqrt(dx * dx + dy * dy);
+        // Kenarlardan geri dön
+        if (this.x < -20) this.x = canvas.width + 20;
+        if (this.x > canvas.width + 20) this.x = -20;
+        if (this.y < -20) this.y = canvas.height + 20;
+        if (this.y > canvas.height + 20) this.y = -20;
 
-        if (dist < mouseRadius && mouse.active) {
-          // Fareye doğru çekim kuvveti
-          const force = (mouseRadius - dist) / mouseRadius;
-          const angle = Math.atan2(dy, dx);
+        // Fare etkileşimi - profesyonel
+        const distToMouse = Math.sqrt(Math.pow(this.x - mouseX, 2) + Math.pow(this.y - mouseY, 2));
+        if (distToMouse < 100) {
+          const force = (100 - distToMouse) / 100;
+          const angle = Math.atan2(this.y - mouseY, this.x - mouseX);
           this.x += Math.cos(angle) * force * 2;
           this.y += Math.sin(angle) * force * 2;
-
-          // Fare yakınında büyüme ve parlaklık
-          this.radius = this.baseRadius * (1 + force * 2);
-          this.color = { r: 56, g: 189, b: 248 }; // Sky Blue
-        } else {
-          // Normal nefes alma animasyonu
-          const pulse = Math.sin(time + this.pulsePhase) * 0.3 + 1;
-          this.radius = this.baseRadius * pulse;
-          this.color = this.baseColor;
+          this.opacity = Math.min(0.9, this.opacity + force * 0.4);
         }
       }
 
       draw() {
-        ctx.beginPath();
-        ctx.arc(this.x, this.y, this.radius, 0, Math.PI * 2);
-
-        const isNearMouse = mouse.active && 
-          Math.sqrt((mouse.x - this.x) ** 2 + (mouse.y - this.y) ** 2) < mouseRadius;
-
-        const alpha = isNearMouse ? 1 : 0.6;
-        ctx.fillStyle = `rgba(${this.color.r}, ${this.color.g}, ${this.color.b}, ${alpha})`;
-        ctx.fill();
-
-        // Parlama efekti
-        if (isNearMouse) {
-          ctx.shadowBlur = 15;
-          ctx.shadowColor = `rgba(${this.color.r}, ${this.color.g}, ${this.color.b}, 0.8)`;
-        } else {
-          ctx.shadowBlur = 0;
-        }
+        ctx.save();
+        ctx.font = `${this.size * 9}px 'Fira Code', 'Courier New', monospace`;
+        ctx.fillStyle = this.color.replace('0.4', this.opacity.toString());
+        ctx.textAlign = 'center';
+        ctx.textBaseline = 'middle';
+        
+        // Orta glow efekti
+        ctx.shadowColor = this.color.replace('0.4', (this.opacity * 0.6).toString());
+        ctx.shadowBlur = 12;
+        
+        ctx.fillText(this.symbol, this.x, this.y);
+        ctx.restore();
       }
     }
 
-    const drawConnections = () => {
-      for (let i = 0; i < particles.length; i++) {
-        for (let j = i + 1; j < particles.length; j++) {
-          const dx = particles[i].x - particles[j].x;
-          const dy = particles[i].y - particles[j].y;
-          const dist = Math.sqrt(dx * dx + dy * dy);
-
-          if (dist < connectionDistance) {
-            const alpha = (1 - dist / connectionDistance) * 0.3;
-            ctx.beginPath();
-            ctx.moveTo(particles[i].x, particles[i].y);
-            ctx.lineTo(particles[j].x, particles[j].y);
-            ctx.strokeStyle = `rgba(99, 102, 241, ${alpha})`;
-            ctx.lineWidth = 0.8;
-            ctx.stroke();
-          }
-        }
-
-        // Fare ile parçacık arasındaki bağlantılar
-        if (mouse.active) {
-          const dx = mouse.x - particles[i].x;
-          const dy = mouse.y - particles[i].y;
-          const dist = Math.sqrt(dx * dx + dy * dy);
-
-          if (dist < mouseRadius * 1.5) {
-            const alpha = (1 - dist / (mouseRadius * 1.5)) * 0.5;
-            ctx.beginPath();
-            ctx.moveTo(particles[i].x, particles[i].y);
-            ctx.lineTo(mouse.x, mouse.y);
-            ctx.strokeStyle = `rgba(56, 189, 248, ${alpha})`;
-            ctx.lineWidth = 1;
-            ctx.stroke();
-          }
-        }
-      }
+    const handleMouseMove = (e) => {
+      mouseX = e.clientX;
+      mouseY = e.clientY;
     };
+
+    window.addEventListener('mousemove', handleMouseMove);
 
     const init = () => {
       particles = [];
       for (let i = 0; i < particleCount; i++) {
-        particles.push(new Particle());
+        particles.push(new CodeParticle(i));
+      }
+    };
+
+    const drawBackground = () => {
+      // Profesyonel gradient arka plan
+      const gradient = ctx.createLinearGradient(0, 0, canvas.width, canvas.height);
+      gradient.addColorStop(0, '#f8fafc');
+      gradient.addColorStop(0.5, '#f1f5f9');
+      gradient.addColorStop(1, '#e2e8f0');
+      ctx.fillStyle = gradient;
+      ctx.fillRect(0, 0, canvas.width, canvas.height);
+
+      // Subtle grid pattern
+      ctx.strokeStyle = 'rgba(148, 163, 184, 0.05)';
+      ctx.lineWidth = 1;
+      const gridSize = 40;
+      
+      for (let x = 0; x < canvas.width; x += gridSize) {
+        ctx.beginPath();
+        ctx.moveTo(x, 0);
+        ctx.lineTo(x, canvas.height);
+        ctx.stroke();
+      }
+      
+      for (let y = 0; y < canvas.height; y += gridSize) {
+        ctx.beginPath();
+        ctx.moveTo(0, y);
+        ctx.lineTo(canvas.width, y);
+        ctx.stroke();
+      }
+    };
+
+    const drawConnections = () => {
+      // Yakın parçacıklar arasında bağlantılar
+      for (let i = 0; i < particles.length; i++) {
+        for (let j = i + 1; j < particles.length; j++) {
+          const dx = particles[i].x - particles[j].x;
+          const dy = particles[i].y - particles[j].y;
+          const distance = Math.sqrt(dx * dx + dy * dy);
+
+          if (distance < 80) {
+            const opacity = (1 - distance / 80) * 0.3;
+            ctx.strokeStyle = `rgba(148, 163, 184, ${opacity})`;
+            ctx.lineWidth = 0.5;
+            ctx.beginPath();
+            ctx.moveTo(particles[i].x, particles[i].y);
+            ctx.lineTo(particles[j].x, particles[j].y);
+            ctx.stroke();
+          }
+        }
       }
     };
 
     setCanvasDimensions();
 
-    let time = 0;
     const animate = () => {
       animationFrameId = requestAnimationFrame(animate);
-      time += 0.05;
+      time += 1;
 
-      ctx.clearRect(0, 0, canvas.width, canvas.height);
-
-      // Arka plan gradyan
-      const gradient = ctx.createRadialGradient(
-        canvas.width / 2, canvas.height / 2, 0,
-        canvas.width / 2, canvas.height / 2, canvas.width
-      );
-      gradient.addColorStop(0, 'rgba(248, 250, 252, 1)');
-      gradient.addColorStop(1, 'rgba(241, 245, 249, 1)');
-      ctx.fillStyle = gradient;
-      ctx.fillRect(0, 0, canvas.width, canvas.height);
+      // Arka plan
+      drawBackground();
 
       // Bağlantıları çiz
       drawConnections();
 
-      // Parçacıkları güncelle ve çiz
+      // Parçacıkları çiz
       particles.forEach(particle => {
-        particle.update(time);
+        particle.update();
         particle.draw();
       });
-
-      ctx.shadowBlur = 0;
     };
 
     animate();
@@ -193,7 +209,6 @@ const BackgroundAnimation = () => {
     return () => {
       window.removeEventListener('resize', setCanvasDimensions);
       window.removeEventListener('mousemove', handleMouseMove);
-      window.removeEventListener('mouseout', handleMouseOut);
       cancelAnimationFrame(animationFrameId);
     };
   }, []);
@@ -201,7 +216,6 @@ const BackgroundAnimation = () => {
   return (
     <div className="background-animation-container">
       <canvas ref={canvasRef} className="background-canvas"></canvas>
-      <div className="gradient-overlay"></div>
     </div>
   );
 };
