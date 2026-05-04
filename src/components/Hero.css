@@ -1,9 +1,9 @@
 .hero {
   min-height: calc(100vh - 80px);
   display: flex;
-  align-items: flex-start; /* navbar ile içerik arasındaki boşluğu azalt */
+  align-items: center; /* tam ortala */
   justify-content: center;
-  padding: 8rem 0 5rem; /* üst boşluğu biraz daha kısalt */
+  padding: 4rem 0 5rem; /* üst boşluğu daha da kısalt */
   background: transparent;
 }
 
@@ -46,10 +46,28 @@
 }
 
 .hero-name {
-  background: linear-gradient(135deg, #6366f1 0%, #8b5cf6 100%);
+  background: linear-gradient(135deg, #1e40af 0%, #6366f1 50%, #8b5cf6 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
+  font-size: 3.8rem;
+  font-weight: 700;
+  letter-spacing: 0.01em;
+  position: relative;
+}
+
+/* Responsive için hero-name */
+@media (max-width: 968px) {
+  .hero-name {
+    font-size: 2.8rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .hero-name {
+    font-size: 2.2rem;
+    letter-spacing: 0.02em; /* mobilde daha fazla harf aralığı */
+  }
 }
 
 .hero-subtitle {
@@ -202,6 +220,7 @@
   }
 }
 
+
 @media (max-width: 968px) {
   .hero-title {
     font-size: 2.5rem;
@@ -210,7 +229,7 @@
 
 @media (max-width: 768px) {
   .hero {
-    padding: 6rem 0 3rem;
+    padding: 2rem 0 3rem; /* mobilde daha da kısalt */
   }
 
   .hero-title {
