@@ -136,32 +136,9 @@ const BackgroundAnimation = () => {
     };
 
     const drawBackground = () => {
-      // Profesyonel gradient arka plan
-      const gradient = ctx.createLinearGradient(0, 0, canvas.width, canvas.height);
-      gradient.addColorStop(0, '#f8fafc');
-      gradient.addColorStop(0.5, '#f1f5f9');
-      gradient.addColorStop(1, '#e2e8f0');
-      ctx.fillStyle = gradient;
+      // Solid black background
+      ctx.fillStyle = '#000000';
       ctx.fillRect(0, 0, canvas.width, canvas.height);
-
-      // Subtle grid pattern
-      ctx.strokeStyle = 'rgba(148, 163, 184, 0.05)';
-      ctx.lineWidth = 1;
-      const gridSize = 40;
-      
-      for (let x = 0; x < canvas.width; x += gridSize) {
-        ctx.beginPath();
-        ctx.moveTo(x, 0);
-        ctx.lineTo(x, canvas.height);
-        ctx.stroke();
-      }
-      
-      for (let y = 0; y < canvas.height; y += gridSize) {
-        ctx.beginPath();
-        ctx.moveTo(0, y);
-        ctx.lineTo(canvas.width, y);
-        ctx.stroke();
-      }
     };
 
     const drawConnections = () => {
@@ -193,15 +170,6 @@ const BackgroundAnimation = () => {
 
       // Arka plan
       drawBackground();
-
-      // Bağlantıları çiz
-      drawConnections();
-
-      // Parçacıkları çiz
-      particles.forEach(particle => {
-        particle.update();
-        particle.draw();
-      });
     };
 
     animate();

@@ -105,43 +105,91 @@ const Header = () => {
 
   return (
     <header className="header">
-      <div className="container">
-        <nav className={`nav ${isMenuOpen ? 'nav-open' : ''}`}>
-          <ul className="nav-list">
-            {navItems.map((item) => (
-              <li key={item.key}>
-                <Link
-                  to="/"
-                  className={`nav-link ${
-                    (item.targetId === activeTargetId || (!item.targetId && activeTargetId === null))
-                      ? 'active'
-                      : ''
-                  }`}
-                  onClick={(e) => handleNavClick(item.targetId, e)}
-                >
-                  {text.nav[item.key]}
-                </Link>
-              </li>
-            ))}
-          </ul>
-        </nav>
+      {/* Mobile Header Strip */}
+      <div className="mobile-header-strip">
+        <div className="mobile-header-container">
+          <div className="mobile-name">Feyzullah As</div>
+          
+          <button
+            type="button"
+            className={`mobile-language-toggle ${language === 'en' ? 'language-toggle-en' : ''}`}
+            onClick={toggleLanguage}
+            aria-label={text.nav.languageAriaLabel}
+          >
+            <span className="language-toggle-glider"></span>
+            <span className={`lang-text ${language === 'tr' ? 'active' : ''}`}>TR</span>
+            <span className={`lang-text ${language === 'en' ? 'active' : ''}`}>EN</span>
+          </button>
 
-        <button
-          type="button"
-          className={`language-toggle ${language === 'en' ? 'language-toggle-en' : ''}`}
-          onClick={toggleLanguage}
-          aria-label={text.nav.languageAriaLabel}
-        >
-          <span className="language-toggle-glider"></span>
-          <span className={`lang-text ${language === 'tr' ? 'active' : ''}`}>TR</span>
-          <span className={`lang-text ${language === 'en' ? 'active' : ''}`}>EN</span>
-        </button>
+          <button className={`mobile-menu-toggle ${isMenuOpen ? 'active' : ''}`} onClick={toggleMenu} aria-label="Toggle menu">
+            <span></span>
+            <span></span>
+            <span></span>
+          </button>
+        </div>
+      </div>
 
-        <button className="menu-toggle" onClick={toggleMenu} aria-label="Toggle menu">
-          <span></span>
-          <span></span>
-          <span></span>
-        </button>
+      {/* Desktop Header */}
+      <div className="desktop-header">
+        <div className="container">
+          <nav className={`nav ${isMenuOpen ? 'nav-open' : ''}`}>
+            <ul className="nav-list">
+              {navItems.map((item) => (
+                <li key={item.key}>
+                  <Link
+                    to="/"
+                    className={`nav-link ${
+                      (item.targetId === activeTargetId || (!item.targetId && activeTargetId === null))
+                        ? 'active'
+                        : ''
+                    }`}
+                    onClick={(e) => handleNavClick(item.targetId, e)}
+                  >
+                    {text.nav[item.key]}
+                  </Link>
+                </li>
+              ))}
+            </ul>
+          </nav>
+
+          <button
+            type="button"
+            className={`language-toggle ${language === 'en' ? 'language-toggle-en' : ''}`}
+            onClick={toggleLanguage}
+            aria-label={text.nav.languageAriaLabel}
+          >
+            <span className="language-toggle-glider"></span>
+            <span className={`lang-text ${language === 'tr' ? 'active' : ''}`}>TR</span>
+            <span className={`lang-text ${language === 'en' ? 'active' : ''}`}>EN</span>
+          </button>
+
+          <button className="menu-toggle" onClick={toggleMenu} aria-label="Toggle menu">
+            <span></span>
+            <span></span>
+            <span></span>
+          </button>
+        </div>
+      </div>
+
+      {/* Mobile Navigation Menu */}
+      <div className={`mobile-nav ${isMenuOpen ? 'mobile-nav-open' : ''}`}>
+        <ul className="mobile-nav-list">
+          {navItems.map((item) => (
+            <li key={item.key}>
+              <Link
+                to="/"
+                className={`mobile-nav-link ${
+                  (item.targetId === activeTargetId || (!item.targetId && activeTargetId === null))
+                    ? 'active'
+                    : ''
+                }`}
+                onClick={(e) => handleNavClick(item.targetId, e)}
+              >
+                {text.nav[item.key]}
+              </Link>
+            </li>
+          ))}
+        </ul>
       </div>
     </header>
   );

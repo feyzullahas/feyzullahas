@@ -19,6 +19,12 @@
   z-index: 2;
 }
 
+@media (max-width: 768px) {
+  .main-content {
+    padding-top: 60px; /* mobile header strip yüksekliği kadar */
+  }
+}
+
 /* Smooth scroll */
 html {
   scroll-behavior: smooth;
