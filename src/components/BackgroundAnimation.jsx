@@ -136,8 +136,8 @@ const BackgroundAnimation = () => {
     };
 
     const drawBackground = () => {
-      // Solid black background
-      ctx.fillStyle = '#000000';
+      // Solid white background
+      ctx.fillStyle = '#ffffff';
       ctx.fillRect(0, 0, canvas.width, canvas.height);
     };
 

@@ -16,6 +16,10 @@
   margin-bottom: 4rem;
   position: relative;
   animation: fadeInUp 0.8s ease;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
 }
 
 .section-title::after {

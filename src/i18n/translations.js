@@ -21,9 +21,7 @@ export const translations = {
       title: 'Hakkımda',
       photos: ['Fotoğraf 1', 'Fotoğraf 2', 'Fotoğraf 3'],
       paragraphs: [
-        'Yazılım geliştirme ve mühendislik alanında aktif olarak çalışan bir profesyonel olarak, teorik bilgiyi pratik deneyime dönüştürme misyonuyla hareket ediyorum.',
-        'Teknik odak noktam, modern web teknolojileri ve yazılım mimarileridir. Aktif olarak çeşitli projelerde yer alarak bu yenilikçi alanlarda çalışmalar yürütmekteyim.',
-        'Liderlik ve takım çalışmasında aktif rol almanın yanı sıra, yaratıcı düşünce ve estetik bakış açımı besleyen çeşitli ilgi alanlarına sahibim.',
+        'Bilgisayar Mühendisliği 3. sınıf öğrencisi olarak, yazılım geliştirme alanındaki teorik bilgi birikimimi full-stack projeler üreterek hayata geçiriyorum.',' Yazılım Geliştirme Kulübü Başkanlığı ve aktif hackathon deneyimlerim sayesinde ekip yönetimi, analitik düşünme ve sonuç odaklılık konularında tecrübeliyim. Yeni teknolojilere kolayca adapte olan, öğrenmeye açık ve motivasyonu yüksek bir geliştiriciyim.'
       ],
       highlights: {
         education: {
