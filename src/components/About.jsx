@@ -10,18 +10,6 @@ const About = () => {
         <h2 className="section-title">{text.about.title}</h2>
         
         <div className="about-content">
-          <div className="about-images">
-            <div className="image-placeholder">
-              <span>{text.about.photos[0]}</span>
-            </div>
-            <div className="image-placeholder">
-              <span>{text.about.photos[1]}</span>
-            </div>
-            <div className="image-placeholder">
-              <span>{text.about.photos[2]}</span>
-            </div>
-          </div>
-
           <div className="about-text">
             <p>{text.about.paragraphs[0]}</p>
             <p>{text.about.paragraphs[1]}</p>

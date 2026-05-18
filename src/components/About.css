@@ -36,56 +36,10 @@
 
 .about-content {
   display: grid;
-  grid-template-columns: 1fr 1.5fr;
+  grid-template-columns: 1fr;
   gap: 3rem;
   margin-bottom: 4rem;
   animation: fadeInUp 0.8s ease 0.2s both;
-}
-
-.about-images {
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap: 1rem;
-  grid-template-areas:
-    "img1 img2"
-    "img3 img3";
-}
-
-.image-placeholder {
-  background: rgba(15, 23, 42, 0.05);
-  border-radius: 12px;
-  aspect-ratio: 1;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  border: 2px dashed rgba(15, 23, 42, 0.2);
-  color: var(--text-tertiary);
-  overflow: hidden;
-  transition: transform 0.3s, box-shadow 0.3s;
-}
-
-.image-placeholder:hover {
-  transform: scale(1.05);
-  box-shadow: 0 10px 25px rgba(99, 102, 241, 0.2);
-}
-
-.image-placeholder:first-child {
-  grid-area: img1;
-}
-
-.image-placeholder:nth-child(2) {
-  grid-area: img2;
-}
-
-.image-placeholder:nth-child(3) {
-  grid-area: img3;
-  aspect-ratio: 2/1;
-}
-
-.image-placeholder img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
 }
 
 .about-text {

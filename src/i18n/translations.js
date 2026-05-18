@@ -19,9 +19,8 @@ export const translations = {
     },
     about: {
       title: 'Hakkımda',
-      photos: ['Fotoğraf 1', 'Fotoğraf 2', 'Fotoğraf 3'],
       paragraphs: [
-        'Bilgisayar Mühendisliği 3. sınıf öğrencisi olarak, yazılım geliştirme alanındaki teorik bilgi birikimimi full-stack projeler üreterek hayata geçiriyorum.',' Yazılım Geliştirme Kulübü Başkanlığı ve aktif hackathon deneyimlerim sayesinde ekip yönetimi, analitik düşünme ve sonuç odaklılık konularında tecrübeliyim. Yeni teknolojilere kolayca adapte olan, öğrenmeye açık ve motivasyonu yüksek bir geliştiriciyim.'
+        'Bilgisayar Mühendisliği 3. sınıf öğrenci olarak, yazılım geliştirme sistemleri teorik bilgi paketlerimi, web teknolojileriyle yakından ilgilenerek ve full-stack projeleri hayata geçirerek hayata geçiriyorum.','Yazılım Geliştirme Kulübü Başkanlığı, Teknofest proje katılımlarım ve aktif hackathon deneyimlerim sayesinde ekip yönetimi, analitik düşünme ve sonuç odaklılık odaklı tecrübeliyim. Yeni teknolojilere kolayca uyum sağlayan, sonuçları açık ve motivasyonu yüksek bir geliştiriciyim.'
       ],
       highlights: {
         education: {
@@ -150,11 +149,10 @@ export const translations = {
     },
     about: {
       title: 'About Me',
-      photos: ['Photo 1', 'Photo 2', 'Photo 3'],
       paragraphs: [
-        'As a professional actively working in software development and engineering, I focus on turning theoretical knowledge into practical experience.',
-        'My technical focus is modern web technologies and software architectures. I actively contribute to projects in these innovative areas.',
-        'Alongside taking active roles in leadership and teamwork, I have diverse interests that support my creative thinking and aesthetic perspective.',
+        'As a third-year Computer Engineering student, I put my theoretical knowledge of software development systems into practice by closely engaging with web technologies and implementing full-stack projects.',
+        'Thanks to my experience as the President of the Software Development Club, my participation in Teknofest projects, and my active hackathon experiences, I am experienced in team management, analytical thinking, and results-oriented approaches. I am a developer who easily adapts to new technologies, has clear results, and is highly motivated.'
+        
       ],
       highlights: {
         education: {
