@@ -11,6 +11,25 @@ import Contact from '../components/Contact';
 const Home = () => {
   const location = useLocation();
   const navigate = useNavigate();
+  const extraScrollOffsets = {
+    hakkimda: 64,
+    deneyim: 64,
+    projeler: 64,
+    beceriler: 64,
+  };
+
+  const scrollToSection = (targetId) => {
+    const element = document.getElementById(targetId);
+    if (!element) {
+      return;
+    }
+
+    const headerOffset = window.innerWidth <= 768 ? 60 : 72;
+    const extraOffset = extraScrollOffsets[targetId] || 0;
+    const top = element.offsetTop - headerOffset + extraOffset;
+
+    window.scrollTo({ top, behavior: 'smooth' });
+  };
 
   useEffect(() => {
     if (location.state && location.state.scrollTo !== undefined) {
@@ -22,11 +41,7 @@ const Home = () => {
       if (!scrollTo) {
         window.scrollTo({ top: 0, behavior: 'smooth' });
       } else {
-        const el = document.getElementById(scrollTo);
-        if (el) {
-          // Header yüksekliği için scroll-margin-top zaten section CSS'inde var
-          el.scrollIntoView({ behavior: 'smooth', block: 'start' });
-        }
+        scrollToSection(scrollTo);
       }
     }
   }, [location, navigate]);

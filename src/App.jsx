@@ -1,4 +1,4 @@
-import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import { BrowserRouter as Router, Routes, Route, useLocation } from 'react-router-dom';
 import Header from './components/Header';
 import Footer from './components/Footer';
 import ScrollToTop from './components/ScrollToTop';
@@ -13,27 +13,36 @@ import ContactPage from './pages/ContactPage';
 import { LanguageProvider } from './context/LanguageContext';
 import './App.css';
 
+const AppContent = () => {
+  const location = useLocation();
+  const isHome = location.pathname === '/';
+
+  return (
+    <div className="app">
+      <BackgroundAnimation />
+      <Header />
+      <main className={`main-content ${isHome ? '' : 'main-content-page'}`}>
+        <ScrollToTop />
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="/hakkimda" element={<AboutPage />} />
+          <Route path="/deneyim" element={<ExperiencePage />} />
+          <Route path="/projeler" element={<ProjectsPage />} />
+          <Route path="/beceriler" element={<SkillsPage />} />
+          <Route path="/cv" element={<CVPage />} />
+          <Route path="/iletisim" element={<ContactPage />} />
+        </Routes>
+      </main>
+      <Footer />
+    </div>
+  );
+};
+
 function App() {
   return (
     <LanguageProvider>
       <Router>
-        <div className="app">
-          <BackgroundAnimation />
-          <Header />
-          <main className="main-content">
-            <ScrollToTop />
-            <Routes>
-              <Route path="/" element={<Home />} />
-              <Route path="/hakkimda" element={<AboutPage />} />
-              <Route path="/deneyim" element={<ExperiencePage />} />
-              <Route path="/projeler" element={<ProjectsPage />} />
-              <Route path="/beceriler" element={<SkillsPage />} />
-              <Route path="/cv" element={<CVPage />} />
-              <Route path="/iletisim" element={<ContactPage />} />
-            </Routes>
-          </main>
-          <Footer />
-        </div>
+        <AppContent />
       </Router>
     </LanguageProvider>
   );

@@ -28,7 +28,6 @@
 .project-card:nth-child(1) { animation-delay: 0.1s; }
 .project-card:nth-child(2) { animation-delay: 0.2s; }
 .project-card:nth-child(3) { animation-delay: 0.3s; }
-.project-card:nth-child(4) { animation-delay: 0.4s; }
 
 .project-card:hover {
   transform: translateY(-5px);
@@ -61,11 +60,6 @@
   flex: 1;
 }
 
-.project-icon {
-  font-size: 2.5rem;
-  margin-bottom: 0.5rem;
-}
-
 .project-title {
   color: var(--text-primary);
   font-size: 1.3rem;
@@ -85,12 +79,12 @@
 }
 
 .project-tag {
-  background: rgba(99, 102, 241, 0.2);
-  color: #a5b4fc;
+  background: #e0e7ff;
+  color: #1e1b4b;
   padding: 0.25rem 0.75rem;
   border-radius: 20px;
   font-size: 0.85rem;
-  border: 1px solid rgba(99, 102, 241, 0.3);
+  border: 1px solid #c7d2fe;
 }
 
 .project-link {

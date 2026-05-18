@@ -5,8 +5,11 @@ const ScrollToTop = () => {
   const { pathname } = useLocation();
 
   useEffect(() => {
+    const isHome = pathname === '/';
+    const baseOffset = isHome ? 0 : 48;
+
     window.scrollTo({
-      top: 0,
+      top: baseOffset,
       left: 0,
       behavior: 'smooth',
     });

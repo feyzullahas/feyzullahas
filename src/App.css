@@ -19,9 +19,21 @@
   z-index: 2;
 }
 
+.main-content-page section {
+  padding-top: 1rem;
+}
+
+.main-content-page .section-title {
+  margin-top: 0;
+}
+
 @media (max-width: 768px) {
   .main-content {
     padding-top: 60px; /* mobile header strip yüksekliği kadar */
+  }
+
+  .main-content-page section {
+    padding-top: 1rem;
   }
 }
 

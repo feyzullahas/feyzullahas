@@ -43,45 +43,39 @@ export const translations = {
         {
           title: 'Kurucu Başkan & Takım Lideri',
           company: 'ÇOMÜ Yazılım Geliştirme Kulübü',
-          period: '2025 - Günümüz',
-          description:
-            'Buraya deneyim açıklamanızı yazın. Görevlerinizi, başarılarınızı ve sorumluluklarınızı detaylandırın.',
+          period: '2025 - Günümüz'
         },
         {
           title: 'Yönetim Kurulu Başkan Yardımcısı',
           company: 'ÇOMÜ Blockchain Kulübü',
-          period: '2023 - 2025',
-          description: 'Buraya deneyim açıklamanızı yazın.',
+          period: '2023 - 2025'
         },
         {
           title: 'Yazılım Sorumlusu',
           company: 'KALE1915 Teknofest Takımı',
-          period: '2025 - Günümüz',
-          description:
-            'Buraya deneyim açıklamanızı yazın. Görevlerinizi, başarılarınızı ve sorumluluklarınızı detaylandırın.',
+          period: '2025 - Günümüz'
         },
       ],
     },
     projects: {
       title: 'Projeler & Yarışmalar',
       details: 'Detayları Gör ->',
+      viewProject: 'Projeyi İncele',
       items: [
         {
-          title: 'Proje Başlığı 1',
+          title: '18 Mart Portal',
           description:
-            'Proje açıklaması buraya gelecek. Projenin amacı, kullanılan teknolojiler ve sonuçlar hakkında bilgi verin.',
+            'Öğrencilerin kampüs hayatını kolaylaştırmak amacıyla geliştirilen; yemek menüleri ve otobüs saatleri gibi verileri web kazıma yöntemiyle anlık olarak sunan, günlük ortalama 700 aktif kullanıcıya sahip PWA destekli web uygulaması.',
         },
         {
-          title: 'Proje Başlığı 2',
-          description: 'Proje açıklaması buraya gelecek.',
+          title: 'Find Team',
+          description:
+            'Halı saha organizasyonlarında yaşanan takım ve oyuncu eksikliği problemine çözüm sunan sporcu dostu platform. Kullanıcıların detaylı filtreleme sistemleriyle ilan oluşturabilmesini ve kendi seviyelerine uygun takım arkadaşları bulabilmesini sağlar.',
         },
         {
-          title: 'Proje Başlığı 2',
-          description: 'Proje açıklaması buraya gelecek.',
-        },
-        {
-          title: 'Proje Başlığı 3',
-          description: 'Proje açıklaması buraya gelecek.',
+          title: 'SharePay',
+          description:
+            '2 günlük bir hackathon kapsamında sıfırdan geliştirilen finans ve yönetim platformu. İşletmelerin aylık gelir-gider akışını takip ederken, net kârı ve oluşan masrafları ortaklar arasında hisseleri oranında şeffaf ve otomatik bir şekilde paylaştırır.',
         },
       ],
     },
@@ -157,11 +151,11 @@ export const translations = {
       highlights: {
         education: {
           title: 'Education',
-          lines: ['University Name', 'Department Name', 'Scholarship Status'],
+          lines: ['Canakkale Onsekiz Mart University', 'Computer Engineering'],
         },
         aerospace: {
-          title: 'Space & Aviation',
-          lines: ['Team Name', 'Responsibilities'],
+          title: 'Board Chairman',
+          lines: ['Software Development Club', 'Founding President'],
         },
         leadership: {
           title: 'Leadership',
@@ -175,45 +169,37 @@ export const translations = {
         {
           title: 'Founding President & Team Leader',
           company: 'COMU Software Development Club',
-          period: '2025 - Present',
-          description:
-            'Write your experience details here. Explain your duties, achievements, and responsibilities.',
+          period: '2025 - Present'
         },
         {
           title: 'Vice Chairman of the Board',
           company: 'COMU Blockchain Club',
-          period: '2023 - 2025',
-          description: 'Write your experience details here.',
+          period: '2023 - 2025'
         },
         {
           title: 'Software Lead',
           company: 'KALE1915 Teknofest Team',
-          period: '2025 - Present',
-          description:
-            'Write your experience details here. Explain your duties, achievements, and responsibilities.',
+          period: '2025 - Present'
         },
       ],
     },
     projects: {
       title: 'Projects & Competitions',
       details: 'View Details ->',
+      viewProject: 'View Project',
       items: [
         {
-          title: 'Project Title 1',
+          title: '18 Mart Portal',
           description:
-            'Project description goes here. Add information about the purpose, technologies used, and outcomes.',
+            'A PWA-powered web application developed to make campus life easier for students; it provides real-time data such as food menus and bus schedules using web scraping and has an average of 700 active users daily.',
         },
         {
-          title: 'Project Title 2',
-          description: 'Project description goes here.',
+          title: 'Find Team',
+          description: 'A sports-friendly platform designed to solve the problem of player and team shortages in casual football matches. It enables users to create listings with advanced filtering systems to easily find teammates that match their skill levels.',
         },
         {
-          title: 'Project Title 2',
-          description: 'Project description goes here.',
-        },
-        {
-          title: 'Project Title 3',
-          description: 'Project description goes here.',
+          title: 'SharePay',
+          description: 'A financial management platform developed from scratch during a 2-day hackathon. It tracks the monthly income and expense flows of businesses while automatically and transparently distributing net profits and incurred costs among partners based on their share percentages.',
         },
       ],
     },

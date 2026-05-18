@@ -19,6 +19,25 @@ const Header = () => {
   const { text, toggleLanguage, language } = useLanguage();
   const location = useLocation();
   const navigate = useNavigate();
+  const extraScrollOffsets = {
+    hakkimda: 64,
+    deneyim: 64,
+    projeler: 64,
+    beceriler: 64,
+  };
+
+  const scrollToSection = (targetId) => {
+    const element = document.getElementById(targetId);
+    if (!element) {
+      return;
+    }
+
+    const headerOffset = window.innerWidth <= 768 ? 60 : 72;
+    const extraOffset = extraScrollOffsets[targetId] || 0;
+    const top = element.offsetTop - headerOffset + extraOffset;
+
+    window.scrollTo({ top, behavior: 'smooth' });
+  };
 
   useEffect(() => {
     if (location.pathname !== '/') {
@@ -91,10 +110,7 @@ const Header = () => {
       if (!targetId) {
         window.scrollTo({ top: 0, behavior: 'smooth' });
       } else {
-        const el = document.getElementById(targetId);
-        if (el) {
-          el.scrollIntoView({ behavior: 'smooth', block: 'start' });
-        }
+        scrollToSection(targetId);
       }
       return;
     }

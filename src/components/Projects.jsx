@@ -6,37 +6,28 @@ const Projects = () => {
 
   const projects = [
     {
-      icon: '🔭',
       title: text.projects.items[0].title,
       description: text.projects.items[0].description,
-      tags: ['React', 'Node.js', 'MongoDB'],
+      tags: ['Fast API', 'React', 'Python'],
       image: null, // Resim eklemek için: '/images/project1.jpg'
-      link: '#',
+      link: 'https://18martportal.tech',
+      linkLabel: text.projects.viewProject,
     },
     {
-      icon: '⚛️',
       title: text.projects.items[1].title,
       description: text.projects.items[1].description,
-      tags: ['Python', 'AI', 'Machine Learning'],
+      tags: ['React', 'Python'],
       image: null,
-      link: '#',
+      link: 'https://findteam-ten.vercel.app',
+      linkLabel: text.projects.viewProject,
     },
     {
-      icon: '⚛️',
       title: text.projects.items[2].title,
       description: text.projects.items[2].description,
-      tags: ['Python', 'AI', 'Machine Learning'],
+      tags: ['Blockchain', 'Smart Contract'],
       image: null,
-      link: '#',
-    },
-    
-    {
-      icon: '🚀',
-      title: text.projects.items[3].title,
-      description: text.projects.items[3].description,
-      tags: ['JavaScript', 'API', 'Frontend'],
-      image: null,
-      link: '#',
+      link: null,
+      linkLabel: null,
     },
     // Daha fazla proje ekleyebilirsiniz
   ];
@@ -55,7 +46,6 @@ const Projects = () => {
                 </div>
               )}
               <div className="project-content">
-                <div className="project-icon">{project.icon}</div>
                 <h3 className="project-title">{project.title}</h3>
                 <p className="project-description">{project.description}</p>
                 <div className="project-tags">
@@ -65,9 +55,9 @@ const Projects = () => {
                     </span>
                   ))}
                 </div>
-                {project.link && (
+                {project.link && project.linkLabel && (
                   <a href={project.link} className="project-link" target="_blank" rel="noopener noreferrer">
-                    {text.projects.details}
+                    {project.linkLabel}
                   </a>
                 )}
               </div>
