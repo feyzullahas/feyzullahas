@@ -136,6 +136,20 @@
   align-items: center;
 }
 
+.profile-image {
+  width: 250px;
+  height: 250px;
+  object-fit: cover;
+  border-radius: 50%;
+  border: 3px solid rgba(99, 102, 241, 0.3);
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.profile-image:hover {
+  transform: scale(1.05);
+  box-shadow: 0 20px 40px rgba(99, 102, 241, 0.3);
+}
+
 .placeholder-image {
   width: 250px;
   height: 250px;

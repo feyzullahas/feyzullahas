@@ -28,8 +28,8 @@ export const translations = {
           lines: ['Çanakkale Onsekiz Mart Üniversitesi', 'Bilgisayar Mühendisliği'],
         },
         aerospace: {
-          title: 'Yönetim Kurulu Başkanı',
-          lines: ['Yazılım Geliştirme Kulübü', 'Kurucu Başkan'],
+          title: 'Kurucu Başkan',
+          lines: ['Yazılım Geliştirme Kulübü', 'Yönetim Kurulu Başkanı'],
         },
         leadership: {
           title: 'Liderlik',
@@ -83,27 +83,21 @@ export const translations = {
       title: 'Beceriler & Yetkinlikler',
       categories: [
         {
-          title: 'Liderlik & Yönetim',
+          title: 'Kişisel Beceriler',
           items: [
-            'Takım Liderliği',
-            'Proje Yönetimi',
+            'Topluluk ve Kulüp Yönetimi',
+            'Hackathon Deneyimi',
             'Kriz Yönetimi',
-            'Etkinlik Organizasyonu',
-            'İletişim Becerileri',
+            'Stratejik Planlama',
           ],
         },
         {
           title: 'Teknik Beceriler',
-          items: ['React', 'JavaScript', 'Node.js', 'Python', 'Git', 'HTML/CSS'],
-        },
-        {
-          title: 'İlgi Alanları',
           items: [
-            'Yazılım Geliştirme',
-            'Web Teknolojileri',
-            'Yapay Zeka',
-            'Mobil Uygulamalar',
-            'UI/UX Tasarım',
+            'Full-Stack Geliştirme',
+            'AI Destekli Geliştirme',
+            'Veritabanı Yönetimi',
+            'Python, C/C# Tabanlı Geliştirme',
           ],
         },
       ],
@@ -118,6 +112,7 @@ export const translations = {
       title: 'İletişim',
       subtitle: 'Aşağıdaki kanallardan beni takip edebilir veya iletişime geçebilirsiniz!',
       emailName: 'E-Posta',
+      phoneName: 'Telefon',
     },
     footer: {
       rights: 'Tüm hakları saklıdır.',
@@ -154,8 +149,8 @@ export const translations = {
           lines: ['Canakkale Onsekiz Mart University', 'Computer Engineering'],
         },
         aerospace: {
-          title: 'Board Chairman',
-          lines: ['Software Development Club', 'Founding President'],
+          title: 'Founding President',
+          lines: ['Software Development Club', 'Board Chairman'],
         },
         leadership: {
           title: 'Leadership',
@@ -207,27 +202,21 @@ export const translations = {
       title: 'Skills & Competencies',
       categories: [
         {
-          title: 'Leadership & Management',
+          title: 'Personal Skills',
           items: [
-            'Team Leadership',
-            'Project Management',
+            'Community & Club Management',
+            'Hackathon Experience',
             'Crisis Management',
-            'Event Organization',
-            'Communication Skills',
+            'Strategic Planning',
           ],
         },
         {
           title: 'Technical Skills',
-          items: ['React', 'JavaScript', 'Node.js', 'Python', 'Git', 'HTML/CSS'],
-        },
-        {
-          title: 'Interests',
           items: [
-            'Software Development',
-            'Web Technologies',
-            'Artificial Intelligence',
-            'Mobile Applications',
-            'UI/UX Design',
+            'Full-Stack Development',
+            'AI-Assisted Development',
+            'Database Management',
+            'Python, C/C# Based Development',
           ],
         },
       ],
@@ -242,6 +231,7 @@ export const translations = {
       title: 'Contact',
       subtitle: 'You can follow me or reach out through the channels below!',
       emailName: 'Email',
+      phoneName: 'Phone',
     },
     footer: {
       rights: 'All rights reserved.',

@@ -23,6 +23,12 @@
   margin-bottom: 4rem;
 }
 
+@media (min-width: 769px) {
+  .social-links {
+    flex-wrap: nowrap;
+  }
+}
+
 .social-link {
   display: flex;
   flex-direction: column;

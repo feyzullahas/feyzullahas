@@ -7,34 +7,11 @@ const Skills = () => {
   const skillCategories = [
     {
       title: text.skills.categories[0].title,
-      skills: [
-        text.skills.categories[0].items[0],
-        text.skills.categories[0].items[1],
-        text.skills.categories[0].items[2],
-        text.skills.categories[0].items[3],
-        text.skills.categories[0].items[4],
-      ],
+      skills: text.skills.categories[0].items,
     },
     {
       title: text.skills.categories[1].title,
-      skills: [
-        text.skills.categories[1].items[0],
-        text.skills.categories[1].items[1],
-        text.skills.categories[1].items[2],
-        text.skills.categories[1].items[3],
-        text.skills.categories[1].items[4],
-        text.skills.categories[1].items[5],
-      ],
-    },
-    {
-      title: text.skills.categories[2].title,
-      skills: [
-        text.skills.categories[2].items[0],
-        text.skills.categories[2].items[1],
-        text.skills.categories[2].items[2],
-        text.skills.categories[2].items[3],
-        text.skills.categories[2].items[4],
-      ],
+      skills: text.skills.categories[1].items,
     },
   ];
 

@@ -17,11 +17,8 @@ const Hero = () => {
       <div className="container">
         <div className="hero-center">
           <div className="hero-image-wrapper">
-            {/* Buraya kendi resminizi ekleyin */}
             <div className="hero-image">
-              <div className="placeholder-image">
-                <span>{text.hero.imagePlaceholder}</span>
-              </div>
+              <img src="/images/profil.jpeg" alt="Feyzullah As" className="profile-image" />
             </div>
           </div>
           <div className="hero-content">

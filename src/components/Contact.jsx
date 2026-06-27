@@ -6,6 +6,18 @@ const Contact = () => {
 
   const socialLinks = [
     {
+      type: 'phone',
+      name: text.contact.phoneName,
+      url: 'tel:05468875654',
+      account: '0546 887 56 54'
+    },
+    {
+      type: 'email',
+      name: text.contact.emailName,
+      url: 'mailto:feyzullahas47@gmail.com',
+      account: 'feyzullahas47@gmail.com'
+    },
+    {
       type: 'linkedin',
       name: 'LinkedIn',
       url: 'https://www.linkedin.com/in/feyzullah-as-/',
@@ -23,12 +35,6 @@ const Contact = () => {
       url: 'https://www.instagram.com/feyzullah.77/',
       account: 'feyzullah.77'
     },
-    {
-      type: 'email',
-      name: text.contact.emailName,
-      url: 'mailto:feyzullahas47@gmail.com',
-      account: 'feyzullahas47@gmail.com'
-     },
   ];
 
   const getIcon = (type) => {
@@ -55,6 +61,12 @@ const Contact = () => {
         return (
           <svg className="social-icon-svg" viewBox="0 0 24 24" fill="currentColor">
             <path d="M24 5.457v13.909c0 .904-.732 1.636-1.636 1.636h-3.819V11.73L12 16.64l-6.545-4.91v9.273H1.636A1.636 1.636 0 0 1 0 19.366V5.457c0-2.023 2.309-3.178 3.927-1.964L5.455 4.64 12 9.548l6.545-4.91 1.528-1.145C21.69 2.28 24 3.434 24 5.457z"/>
+          </svg>
+        );
+      case 'phone':
+        return (
+          <svg className="social-icon-svg" viewBox="0 0 24 24" fill="currentColor">
+            <path d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z"/>
           </svg>
         );
       default:
