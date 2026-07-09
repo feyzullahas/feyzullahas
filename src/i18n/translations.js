@@ -20,7 +20,7 @@ export const translations = {
     about: {
       title: 'Hakkımda',
       paragraphs: [
-        'Bilgisayar Mühendisliği 3. sınıf öğrenci olarak, yazılım geliştirme sistemleri teorik bilgi paketlerimi, web teknolojileriyle yakından ilgilenerek ve full-stack projeleri hayata geçirerek hayata geçiriyorum.','Yazılım Geliştirme Kulübü Başkanlığı, Teknofest proje katılımlarım ve aktif hackathon deneyimlerim sayesinde ekip yönetimi, analitik düşünme ve sonuç odaklılık odaklı tecrübeliyim. Yeni teknolojilere kolayca uyum sağlayan, sonuçları açık ve motivasyonu yüksek bir geliştiriciyim.'
+        'Yazılım mühendisliği alanındaki teorik altyapısını geliştirdiği full-stack projelerle uygulamaya dönüştüren, yeni teknolojilere hızlı uyum sağlayan Bilgisayar Mühendisliği 4. sınıf öğrencisidir.','Yazılım Geliştirme Kulübü başkanlığı sürecinde edindiği liderlik ve ekip yönetimi becerilerini; Teknofest ve aktif hackathon deneyimleriyle güçlendirmiştir. Fikir aşamasından canlıya alınma sürecine kadar geliştirip son kullanıcıyla buluşturduğu projeler, onun analitik düşünme, problem çözme ve sonuç odaklı çalışma disiplinini göstermektedir.'
       ],
       highlights: {
         education: {
@@ -139,9 +139,8 @@ export const translations = {
     about: {
       title: 'About Me',
       paragraphs: [
-        'As a third-year Computer Engineering student, I put my theoretical knowledge of software development systems into practice by closely engaging with web technologies and implementing full-stack projects.',
-        'Thanks to my experience as the President of the Software Development Club, my participation in Teknofest projects, and my active hackathon experiences, I am experienced in team management, analytical thinking, and results-oriented approaches. I am a developer who easily adapts to new technologies, has clear results, and is highly motivated.'
-        
+        'A 4th-year Computer Engineering student who transforms his theoretical foundation in software engineering into practical applications through full-stack projects and adapts quickly to new technologies.',
+        'He has strengthened the leadership and team management skills gained during his presidency of the Software Development Club through his involvement in Teknofest and active hackathon experiences. The projects he has developed from the ideation stage to live deployment and delivered to end-users demonstrate his analytical thinking, problem-solving abilities, and result-oriented work discipline.'        
       ],
       highlights: {
         education: {

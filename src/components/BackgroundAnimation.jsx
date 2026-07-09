@@ -40,8 +40,8 @@ const BackgroundAnimation = () => {
           
           // Renkler - syntax highlighter temalı
           const colors = [
-            'rgba(147, 51, 234, 0.4)',  // Purple - keywords
-            'rgba(59, 130, 246, 0.4)',   // Blue - functions
+            'rgba(59, 130, 246, 0.4)',   // Blue - keywords
+            'rgba(96, 165, 250, 0.4)',   // Light blue - functions
             'rgba(34, 197, 94, 0.4)',    // Green - strings
             'rgba(251, 146, 60, 0.4)',   // Orange - operators
             'rgba(239, 68, 68, 0.4)',    // Red - errors
@@ -60,7 +60,7 @@ const BackgroundAnimation = () => {
           
           // Özel renkler - yazılım fonksiyonları için
           const functionColors = [
-            'rgba(139, 92, 246, 0.5)',  // Violet - functions
+            'rgba(96, 165, 250, 0.5)',   // Light blue - functions
             'rgba(59, 130, 246, 0.5)',   // Blue - built-ins
             'rgba(16, 185, 129, 0.5)',   // Green - async
             'rgba(245, 158, 11, 0.5)',    // Amber - keywords

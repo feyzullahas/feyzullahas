@@ -5,9 +5,9 @@
 }
 
 :root {
-  --primary-color: #6366f1;
-  --primary-dark: #4f46e5;
-  --secondary-color: #8b5cf6;
+  --primary-color: #2563eb;
+  --primary-dark: #1d4ed8;
+  --secondary-color: #60a5fa;
   --bg-dark: #ffffff;
   --bg-darker: #ffffff;
   --bg-card: rgba(255, 255, 255, 0.7);
