@@ -38,7 +38,7 @@ export const translations = {
       },
     },
     experience: {
-      title: 'Deneyim & Liderlik',
+      title: 'Deneyim',
       items: [
         {
           title: 'Kurucu Başkan & Takım Lideri',
@@ -54,6 +54,16 @@ export const translations = {
           title: 'Yazılım Sorumlusu',
           company: 'KALE1915 Teknofest Takımı',
           period: '2025 - Günümüz'
+        },
+        {
+          title: 'Bilgisayar Mühendisliği',
+          company: 'Çanakkale Onsekiz Mart Üniversitesi',
+          period: '2023 - Günümüz'
+        },
+        {
+          title: 'Stajyer Mühendis',
+          company: 'Econtech Bilişim Teknolojileri A.Ş',
+          period: '2026 - Günümüz'
         },
       ],
     },
@@ -158,7 +168,7 @@ export const translations = {
       },
     },
     experience: {
-      title: 'Experience & Leadership',
+      title: 'Experience',
       items: [
         {
           title: 'Founding President & Team Leader',
@@ -174,6 +184,16 @@ export const translations = {
           title: 'Software Lead',
           company: 'KALE1915 Teknofest Team',
           period: '2025 - Present'
+        },
+        {
+          title: 'Computer Engineering',
+          company: 'Canakkale Onsekiz Mart University',
+          period: '2023 - Present'
+        },
+        {
+          title: 'Intern Engineer',
+          company: 'Econtech Information Technologies Inc.',
+          period: '2026 - Present'
         },
       ],
     },

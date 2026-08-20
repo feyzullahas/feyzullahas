@@ -10,7 +10,7 @@ const Experience = () => {
       company: text.experience.items[0].company,
       period: text.experience.items[0].period,
       description: text.experience.items[0].description,
-      image: null, // Resim eklemek için: '/images/experience1.jpg'
+      image: '/ygk.png',
     },
     {
       title: text.experience.items[1].title,
@@ -24,9 +24,22 @@ const Experience = () => {
       company: text.experience.items[2].company,
       period: text.experience.items[2].period,
       description: text.experience.items[2].description,
-      image: null, // Resim eklemek için: '/images/experience1.jpg'
+      image: null,
     },
-    // Daha fazla deneyim ekleyebilirsiniz
+    {
+      title: text.experience.items[3].title,
+      company: text.experience.items[3].company,
+      period: text.experience.items[3].period,
+      description: text.experience.items[3].description,
+      image: '/comu.png',
+    },
+    {
+      title: text.experience.items[4].title,
+      company: text.experience.items[4].company,
+      period: text.experience.items[4].period,
+      description: text.experience.items[4].description,
+      image: '/econtech.png',
+    },
   ];
 
   return (
