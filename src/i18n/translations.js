@@ -68,7 +68,7 @@ export const translations = {
       ],
     },
     projects: {
-      title: 'Projeler & Yarışmalar',
+      title: 'Projeler',
       details: 'Detayları Gör ->',
       viewProject: 'Projeyi İncele',
       items: [
@@ -198,7 +198,7 @@ export const translations = {
       ],
     },
     projects: {
-      title: 'Projects & Competitions',
+      title: 'Projects',
       details: 'View Details ->',
       viewProject: 'View Project',
       items: [
