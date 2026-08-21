@@ -27,10 +27,11 @@
   transition: transform 0.3s, background-color 0.3s;
   animation: fadeInLeft 0.6s ease both;
 }
-
-.experience-card:nth-child(1) { animation-delay: 0.1s; border-color: #2563eb; }
-.experience-card:nth-child(2) { animation-delay: 0.2s; border-color: #60a5fa; }
-.experience-card:nth-child(3) { animation-delay: 0.3s; border-color: #38bdf8; }
+.experience-card:nth-child(1) { animation-delay: 0.1s; }
+.experience-card:nth-child(2) { animation-delay: 0.2s; }
+.experience-card:nth-child(3) { animation-delay: 0.3s; }
+.experience-card:nth-child(4) { animation-delay: 0.4s; }
+.experience-card:nth-child(5) { animation-delay: 0.5s; }
 
 .experience-card:hover {
   transform: translateX(10px);
@@ -43,6 +44,7 @@
   height: 84px;
   border-radius: 12px;
   overflow: hidden;
+  margin-top: 0.5rem;
   display: flex;
   align-items: center;
   justify-content: center;

@@ -41,29 +41,29 @@ export const translations = {
       title: 'Deneyim',
       items: [
         {
+          title: 'Stajyer Mühendis',
+          company: 'Econtech Bilişim Teknolojileri A.Ş',
+          period: 'Ağustos 2026 - Günümüz'
+        },
+        {
+          title: 'Yazılım Görevlisi',
+          company: 'KALE1915 Teknofest Takımı',
+          period: 'Ocak 2026 - Günümüz'
+        },
+        {
           title: 'Kurucu Başkan & Takım Lideri',
           company: 'ÇOMÜ Yazılım Geliştirme Kulübü',
-          period: '2025 - Günümüz'
+          period: 'Eylül 2025 - Haziran 2026'
         },
         {
           title: 'Yönetim Kurulu Başkan Yardımcısı',
           company: 'ÇOMÜ Blockchain Kulübü',
-          period: '2023 - 2025'
-        },
-        {
-          title: 'Yazılım Sorumlusu',
-          company: 'KALE1915 Teknofest Takımı',
-          period: '2025 - Günümüz'
+          period: 'Eylül 2024 - Haziran 2025'
         },
         {
           title: 'Bilgisayar Mühendisliği',
           company: 'Çanakkale Onsekiz Mart Üniversitesi',
-          period: '2023 - Günümüz'
-        },
-        {
-          title: 'Stajyer Mühendis',
-          company: 'Econtech Bilişim Teknolojileri A.Ş',
-          period: '2026 - Günümüz'
+          period: 'Ekim 2023 - Günümüz'
         },
       ],
     },
@@ -83,9 +83,9 @@ export const translations = {
             'Halı saha organizasyonlarında yaşanan takım ve oyuncu eksikliği problemine çözüm sunan sporcu dostu platform. Kullanıcıların detaylı filtreleme sistemleriyle ilan oluşturabilmesini ve kendi seviyelerine uygun takım arkadaşları bulabilmesini sağlar.',
         },
         {
-          title: 'SharePay',
+          title: 'Onbirli',
           description:
-            '2 günlük bir hackathon kapsamında sıfırdan geliştirilen finans ve yönetim platformu. İşletmelerin aylık gelir-gider akışını takip ederken, net kârı ve oluşan masrafları ortaklar arasında hisseleri oranında şeffaf ve otomatik bir şekilde paylaştırır.',
+            'Gerçek zamanlı çok oyunculu deneyim sunan stratejik bir kart oyunu. Oyuncuların hedef skor belirleyerek dinamik eşleştirme sistemiyle rastgele rakiplerle yarışabilmesine veya özel odalarda arkadaşlarıyla rekabet edebilmesine olanak tanıyan, Google Play Store\'da yayınlanmış mobil uygulama.',
         },
       ],
     },
@@ -171,29 +171,29 @@ export const translations = {
       title: 'Experience',
       items: [
         {
+          title: 'Intern Engineer',
+          company: 'Econtech Information Technologies Inc.',
+          period: 'August 2026 - Present'
+        },
+        {
+          title: 'Software Officer',
+          company: 'KALE1915 Teknofest Team',
+          period: 'January 2026 - Present'
+        },
+        {
           title: 'Founding President & Team Leader',
           company: 'COMU Software Development Club',
-          period: '2025 - Present'
+          period: 'September 2025 - June 2026'
         },
         {
           title: 'Vice Chairman of the Board',
           company: 'COMU Blockchain Club',
-          period: '2023 - 2025'
-        },
-        {
-          title: 'Software Lead',
-          company: 'KALE1915 Teknofest Team',
-          period: '2025 - Present'
+          period: 'September 2024 - June 2025'
         },
         {
           title: 'Computer Engineering',
           company: 'Canakkale Onsekiz Mart University',
-          period: '2023 - Present'
-        },
-        {
-          title: 'Intern Engineer',
-          company: 'Econtech Information Technologies Inc.',
-          period: '2026 - Present'
+          period: 'October 2023 - Present'
         },
       ],
     },
@@ -212,8 +212,8 @@ export const translations = {
           description: 'A sports-friendly platform designed to solve the problem of player and team shortages in casual football matches. It enables users to create listings with advanced filtering systems to easily find teammates that match their skill levels.',
         },
         {
-          title: 'SharePay',
-          description: 'A financial management platform developed from scratch during a 2-day hackathon. It tracks the monthly income and expense flows of businesses while automatically and transparently distributing net profits and incurred costs among partners based on their share percentages.',
+          title: 'Onbirli',
+          description: 'A strategic card game offering a real-time multiplayer experience. A mobile application published on the Google Play Store that allows players to set a target score and compete with random opponents through a dynamic matchmaking system or compete with friends in private rooms.',
         },
       ],
     },

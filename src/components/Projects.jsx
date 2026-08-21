@@ -24,10 +24,10 @@ const Projects = () => {
     {
       title: text.projects.items[2].title,
       description: text.projects.items[2].description,
-      tags: ['Blockchain', 'Smart Contract'],
+      tags: ['React Native', 'Expo', 'Firebase'],
       image: null,
-      link: null,
-      linkLabel: null,
+      link: 'https://play.google.com/store/apps/details?id=com.omnotech.onbirli',
+      linkLabel: "Play Store'da İncele",
     },
     // Daha fazla proje ekleyebilirsiniz
   ];
