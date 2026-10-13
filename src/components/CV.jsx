@@ -1,10 +1,9 @@
 import './CV.css';
 import { useLanguage } from '../context/LanguageContext';
-import cvFile from '../assets/feyzullah_as_cv.pdf';
 
 const CV = () => {
   const { text } = useLanguage();
-  const cvFilePath = cvFile;
+  const cvFilePath = '/feyzullah_as_cv.pdf';
 
   return (
     <section className="cv" id="cv">
