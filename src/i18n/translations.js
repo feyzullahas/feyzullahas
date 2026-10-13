@@ -41,9 +41,14 @@ export const translations = {
       title: 'Deneyim',
       items: [
         {
+          title: 'Yazılım Test Mühendisi',
+          company: 'Econtech Bilişim Teknolojileri A.Ş',
+          period: 'Eylül 2026 - Günümüz'
+        },
+        {
           title: 'Stajyer Mühendis',
           company: 'Econtech Bilişim Teknolojileri A.Ş',
-          period: 'Ağustos 2026 - Günümüz'
+          period: 'Ağustos 2026 - Eylül 2026'
         },
         {
           title: 'Yazılım Görevlisi',
@@ -171,9 +176,14 @@ export const translations = {
       title: 'Experience',
       items: [
         {
+          title: 'Software Test Engineer',
+          company: 'Econtech Information Technologies Inc.',
+          period: 'September 2026 - Present'
+        },
+        {
           title: 'Intern Engineer',
           company: 'Econtech Information Technologies Inc.',
-          period: 'August 2026 - Present'
+          period: 'August 2026 - September 2026'
         },
         {
           title: 'Software Officer',
